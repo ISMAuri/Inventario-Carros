@@ -18,17 +18,18 @@ function mostrarform(bandera){
     {
         $("#listadoregistros").show();
         $("#formularioregistro").hide();
+		// limpiar();
 
     }
 
 }
-function activar(idcategoria){
+function activar(idcliente){
 
 
 bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
 		if(result)
         {
-        	$.post("../ajax/cliente.php?opc=activar", {idcategoria : idcategoria}, function(e){
+        	$.post("../ajax/clientes.php?opc=activar", {idcliente : idcliente}, function(e){
         		bootbox.alert(e);
 	            tabla.ajax.reload();
         	});	
@@ -36,13 +37,13 @@ bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
 	})
 	
 }
-function anular(idcategoria){
+function anular(idcliente){
 
 
 bootbox.confirm("¿Está Seguro de anular el cliente?", function(result){
 		if(result)
         {
-        	$.post("../ajax/cliente.php?opc=anular", {idcategoria : idcategoria}, function(e){
+        	$.post("../ajax/clientes.php?opc=anular", {idcliente : idcliente}, function(e){
         		bootbox.alert(e);
 	            tabla.ajax.reload();
         	});	
@@ -50,45 +51,32 @@ bootbox.confirm("¿Está Seguro de anular el cliente?", function(result){
 	})
 	
 }
-function mostrar(idcategoria){
+function mostrar(idcliente){
 	
-$.post("../ajax/cliente.php?opc=mostrar",{idcategoria : idcategoria}, function(data, status)
+$.post("../ajax/clientes.php?opc=mostrar",{idcliente : idcliente}, function(data, status)
 	{
 		data = JSON.parse(data);					
- 		$("#idcategoria").val(data.id);
+ 		$("#idcliente").val(data.id);
  		$("#nombre").val(data.nombre);		
 		$("#apellido").val(data.apellido);		
-		$("#identidad").val(data.identidad);	
+		$("#rtn").val(data.rtn);	
 		$("#telefono").val(data.telefono);	
-		$("#correo").val(data.correo);	
-		$("#tipo").val(data.tipo);			
-		//$("#tipo").val(data.tipo).trigger('change');
-		$("#estado_civil").val(data.estado_civil);			
-		$("#fecha_nacimiento").val(data.fecha_nacimiento);	
-		$("#fecha_inicial").val(data.fecha_inicial);	
-		$("#trabaja").val(data.trabaja);	
-		$("#empresa").val(data.empresa);		
-		$("#vehiculo_propio").val(data.vehiculo_propio);	
-		$("#cargo").val(data.cargo);			
-		$("#estado_actual").val(data.estado_actual);	
-		$("#observaciones").val(data.observaciones);	
+		$("#correoelectronico").val(data.correoelectronico);	
+		$("#tipocliente").val(data.tipocliente);			
+		//$("#tipocliente").val(data.tipocliente).trigger('change');
 		mostrarform(true);
  	})
 }
 function limpiar(){
-$("#idcategoria").val("");
+		$("#idcliente").val("");
  		$("#nombre").val("");		
 		$("#apellido").val("");		
-		$("#identidad").val("");	
+		$("#rtn").val("");	
 		$("#telefono").val("");	
-		$("#correo").val("");	
-		$("#tipo").val("");			
-		//$("#tipo").val(data.tipo).trigger('change');
-		$("#estado_civil").val("");			
-		$("#trabaja").val("Si");	
-		$("#empresa").val("");		
-		$("#cargo").val("");			
-		$("#observaciones").val("");	
+		$("#correoelectronico").val("");	
+		$("#tipocliente").val("");			
+		//$("#tipocliente").val(data.tipocliente).trigger('change');
+		$("#estado").val("");
 
 }
 function guardarRegistro(){
@@ -96,7 +84,7 @@ function guardarRegistro(){
 
 	var formData = new FormData($("#formulario")[0]);
 	$.ajax({
-		url: "../ajax/cliente.php?opc=guardaryeditar",
+		url: "../ajax/clientes.php?opc=guardaryeditar",
 	    type: "POST",
 	    data: formData,
 	    contentType: false,
@@ -129,7 +117,7 @@ function listar(){
 		        ],
 		"ajax":
 				{
-					url: '../ajax/cliente.php?opc=listar',
+					url: '../ajax/clientes.php?opc=listar',
 					type : "get",
 					dataType : "json",						
 					error: function(e){

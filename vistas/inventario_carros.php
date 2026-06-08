@@ -75,7 +75,8 @@
             </div>
             <!-- /.card -->
   <div class="panel-body pt-4 pl-5 pr-5" id="formularioregistro"  style="background: white;" >
-      <h3>Crear Registro de Carros</h3>
+      <h3>Registrar un Carro</h3>
+      <br><br>
      <form id="formulario" method="POST">
     <input type="hidden" id="idcarro"  name="idcarro">
 

@@ -18,12 +18,12 @@ if (!isset($_SESSION['nombre']) || empty($_SESSION['nombre'])) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Inventario de Carros</h1>
+            <h1 class="m-0">Registro de Clientes</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Inventario de Carros</li>
+              <li class="breadcrumb-item active">Registro de Clientes</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -43,10 +43,13 @@ if ($_SESSION['crearcl']==1)
                   <thead>
                   <tr>
                     <th>Opciones</th>
-                    <th>Cliente</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>                    
-                    <th>Empresa</th>
+                    <th>Tipo de Cliente</th>
+                    <th>RTN</th>
+                    <th>Nombre Completo / Razón Social</th>                    
+                    <th>Teléfono</th>
+                    <th>Correo Electrónico</th>
+                    <th>Dirección</th>
+                    <th>Fecha de Registro</th>
                     <th>Estado</th>
                   </tr>
                   </thead>
@@ -56,10 +59,13 @@ if ($_SESSION['crearcl']==1)
                   <tfoot>
                   <tr>
                     <th>Opciones</th>
-                    <th>Cliente</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>                    
-                    <th>Empresa</th>
+                    <th>Tipo de Cliente</th>
+                    <th>RTN</th>
+                    <th>Nombre Completo / Razón Social</th>
+                    <th>Teléfono</th>
+                    <th>Correo Electrónico</th>
+                    <th>Dirección</th>
+                    <th>Fecha de Registro</th>
                     <th>Estado</th>
                   </tr>
                   </tfoot>
@@ -68,27 +74,31 @@ if ($_SESSION['crearcl']==1)
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-  <div class="panel-body" id="formularioregistro" style="background: white;" >
-      <h3>CREAR REGISTRO DE CLIENTES</h3>
+  <div class="panel-body p-4" id="formularioregistro" style="background: white;" >
+      <h3>Registrar un Cliente</h3>
+      <br>
      <form id="formulario" method="POST">
-    <input type="hidden" id="idcategoria"  name="idcategoria">
+    <input type="hidden" id="idcliente"  name="idcliente">
 
     <div class="row">
 
         <div class="col-md-3">
-            <label>Identidad:</label>
-            <input type="text" name="identidad" id="identidad" class="form-control">
+            <label>Tipo de Cliente:</label>
+            <select name="tipocliente" id="tipocliente" class="form-control">
+                <option value="Natural">Natural</option>
+                <option value="Juridica">Jurídica</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label>RTN:</label>
+            <input type="text" name="rtn" id="rtn" class="form-control">
         </div>
 
         <div class="col-md-3">
-            <label>Nombre:</label>
+            <label>Nombre Completo / Razón Social:</label>
             <input type="text" name="nombre" id="nombre" class="form-control">
         </div>
 
-        <div class="col-md-3">
-            <label>Apellido:</label>
-            <input type="text" name="apellido" id="apellido" class="form-control">
-        </div>
 
         <div class="col-md-3">
             <label>Teléfono:</label>
@@ -102,100 +112,22 @@ if ($_SESSION['crearcl']==1)
     <div class="row">
 
         <div class="col-md-4">
-            <label>Correo:</label>
-            <input type="email" name="correo" id="correo" class="form-control">
+            <label>Correo Electrónico:</label>
+            <input type="email" name="correoelectronico" id="correoelectronico" class="form-control">
         </div>
 
-        <div class="col-md-4">
-            <label>Fecha Inicial:</label>
-            <input type="date" name="fecha_inicial" id="fecha_inicial" class="form-control">
-        </div>
-
-        <div class="col-md-4">
-            <label>Fecha Nacimiento:</label>
-            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
-        </div>
-
-    </div>
-
-    <br>
-
-    <div class="row">
-
-        <div class="col-md-6">
+        
+        <div class="col-md-5">
             <label>Dirección:</label>
             <textarea name="direccion" id="direccion" class="form-control"></textarea>
         </div>
 
         <div class="col-md-3">
-            <label>Tipo:</label>
-            <select name="tipo" id="tipo" class="form-control">
-                <option value="">Seleccione</option>
-                <option value="Empresa">Empresa</option>
-                <option value="Personal">Personal</option>
-            </select>
-        </div>
-
-        <div class="col-md-3">
-            <label>Estado Civil:</label>
-            <select name="estado_civil" id="estado_civil" class="form-control">
-                <option value="">Seleccione</option>
-                <option value="Soltero(a)">Soltero(a)</option>
-                <option value="Casado(a)">Casado(a)</option>
-                <option value="Viudo(a)">Viudo(a)</option>
-                <option value="Otros">Otros</option>
-            </select>
-        </div>
-
-    </div>
-
-    <br>
-
-    <div class="row">
-
-        <div class="col-md-3">
-            <label>¿Trabaja?</label>
-            <select name="trabaja" id="trabaja" class="form-control">
-                <option value="No">No</option>
-                <option value="Si">Si</option>
-            </select>
-        </div>
-
-        <div class="col-md-3">
-            <label>Empresa:</label>
-            <input type="text" name="empresa" id="empresa" class="form-control">
-        </div>
-
-        <div class="col-md-3">
-            <label>¿Vehículo Propio?</label>
-            <select name="vehiculo_propio" id="vehiculo_propio" class="form-control">
-                <option value="No">No</option>
-                <option value="Si">Si</option>
-            </select>
-        </div>
-
-        <div class="col-md-3">
-            <label>Cargo:</label>
-            <input type="text" name="cargo" id="cargo" class="form-control">
-        </div>
-
-    </div>
-
-    <br>
-
-    <div class="row">
-
-        <div class="col-md-4">
-            <label>Estado Actual:</label>
-            <select name="estado_actual" id="estado_actual" class="form-control">
+            <label>Estado:</label>
+            <select name="estado" id="estado" class="form-control">
                 <option value="Activo">Activo</option>
-                <option value="Bloqueado">Bloqueado</option>
+                <option value="Inactivo">Inactivo</option>
             </select>
-        </div>
-
-        <div class="col-md-8">
-            <label>Observaciones:</label>
-            <textarea name="observaciones" id="observaciones" class="form-control"></textarea>
         </div>
 
     </div>
@@ -250,7 +182,7 @@ if ($_SESSION['crearcl']==1)
     });
   });
 </script>
-<script src="js/cliente.js"></script>
+<script src="js/clientes.js"></script>
 
 
 
