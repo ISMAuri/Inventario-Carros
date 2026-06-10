@@ -75,24 +75,22 @@ switch ($_GET['opc']) {
 
 	case 'guardaryeditar':
 
-		// var_dump($_FILES['fotos']);
-		// exit();
-		$fotos = [];
-		for ($i = 0; $i < count($_FILES['fotos']['name']); $i++) {
+		// $fotos = [];
+		// for ($i = 0; $i < count($_FILES['fotos']['name']); $i++) {
 
-			$nombre = $_FILES['fotos']['name'][$i];
-			$tmp    = $_FILES['fotos']['tmp_name'][$i];
-			$tipo   = $_FILES['fotos']['type'][$i];
+		// 	$nombre = $_FILES['fotos']['name'][$i];
+		// 	$tmp    = $_FILES['fotos']['tmp_name'][$i];
+		// 	$tipo   = $_FILES['fotos']['type'][$i];
 
-			if (!empty($tmp) && is_uploaded_file($tmp)) {
-				if ($tipo == "image/*") {
-					$ext = pathinfo($nombre, PATHINFO_EXTENSION);
-					$foto = round(microtime(true)) . "_" . $i . "." . $ext;
-					move_uploaded_file($tmp, "../files/carros/" . $foto);
-					array_push($fotos, $foto);
-				}
-			}
-		}
+		// 	if (!empty($tmp) && is_uploaded_file($tmp)) {
+		// 		if ($tipo == "image/*") {
+		// 			$ext = pathinfo($nombre, PATHINFO_EXTENSION);
+		// 			$foto = round(microtime(true)) . "_" . $i . "." . $ext;
+		// 			move_uploaded_file($tmp, "../files/carros/" . $foto);
+		// 			array_push($fotos, $foto);
+		// 		}
+		// 	}
+		// }
 
 
 		if (empty($idcarro)) {
@@ -102,10 +100,10 @@ switch ($_GET['opc']) {
 			$resp = $categoria->insertar($sql);
 
 
-			foreach($fotos as $foto) {
-				$sql_foto = "INSERT INTO `fotos_carro`(`idcarro`, `ruta`) VALUES ((SELECT idcarro FROM carros WHERE vin='$vin'), '$foto')";
-				$categoria->insertar($sql_foto);
-			}
+			// foreach($fotos as $foto) {
+			// 	$sql_foto = "INSERT INTO `fotos_carro`(`idcarro`, `ruta`) VALUES ((SELECT idcarro FROM carros WHERE vin='$vin'), '$foto')";
+			// 	$categoria->insertar($sql_foto);
+			// }
 
 
 			echo $resp ? "El carro se registro correctante " : " No se puedo realizar";
@@ -116,17 +114,16 @@ switch ($_GET['opc']) {
 			$resp = $categoria->insertar($sql);
 			
 			
-			// $resp = true;
 			// if (count($fotos) > 0) {
 			// 	$categoria->insertar("DELETE FROM fotos_carro WHERE idcarro='$idcarro'");
 
 			// 	foreach($fotos as $foto) {
 			// 	$sql_foto = "INSERT INTO `fotos_carro`(`idcarro`, `ruta`) VALUES ((SELECT idcarro FROM carros WHERE vin='$vin'), '$foto')";
 			// 	$categoria->insertar($sql_foto);
-			// 	$resp = false;
 			// 	}	
 			// }			
 			
+			// var_dump($fotos);
 
 			echo $resp ? " El carro se edito correctante " : " No se puedo realizar la edición";
 		}
