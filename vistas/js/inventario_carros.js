@@ -50,28 +50,27 @@ bootbox.confirm("¿Está Seguro de anular el cliente?", function(result){
 	})
 	
 }
-function mostrar(idcategoria){
+function mostrar(idcarro){
 	
-$.post("../ajax/inventario_carros.php?opc=mostrar",{idcategoria : idcategoria}, function(data, status)
+$.post("../ajax/inventario_carros.php?opc=mostrar",{idcarro : idcarro}, function(data, status)
 	{
 		data = JSON.parse(data);					
- 		$("#idcategoria").val(data.id);
- 		$("#nombre").val(data.nombre);		
-		$("#apellido").val(data.apellido);		
-		$("#identidad").val(data.identidad);	
-		$("#telefono").val(data.telefono);	
-		$("#correo").val(data.correo);	
-		$("#tipo").val(data.tipo);			
-		//$("#tipo").val(data.tipo).trigger('change');
-		$("#estado_civil").val(data.estado_civil);			
-		$("#fecha_nacimiento").val(data.fecha_nacimiento);	
-		$("#fecha_inicial").val(data.fecha_inicial);	
-		$("#trabaja").val(data.trabaja);	
-		$("#empresa").val(data.empresa);		
-		$("#vehiculo_propio").val(data.vehiculo_propio);	
-		$("#cargo").val(data.cargo);			
-		$("#estado_actual").val(data.estado_actual);	
-		$("#observaciones").val(data.observaciones);	
+ 		$("#idcarro").val(data.idcarro);
+		$("#vin").val(data.vin);
+		$("#marca").val(data.marca);
+		$("#modelo").val(data.modelo);
+		$("#anio").val(data.anio);
+		$("#color").val(data.color);
+		$("#placa").val(data.placa);
+		$("#kilometraje").val(data.kilometraje);
+		$("#tipocombustible").val(data.tipocombustible);
+		$("#tipocarroceria").val(data.tipocarroceria);
+		$("#preciocompra").val(data.preciocompra);
+		$("#precioventa").val(data.precioventa);
+		$("#fechaingreso").val(data.fechaingreso);
+		$("#estado").val(data.estado);
+		$("#observaciones").val(data.observaciones);
+ 		
 		mostrarform(true);
  	})
 }

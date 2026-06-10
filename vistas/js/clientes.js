@@ -56,12 +56,13 @@ function mostrar(idcliente){
 $.post("../ajax/clientes.php?opc=mostrar",{idcliente : idcliente}, function(data, status)
 	{
 		data = JSON.parse(data);					
- 		$("#idcliente").val(data.id);
+ 		$("#idcliente").val(data.idcliente);
  		$("#nombre").val(data.nombre);		
 		$("#apellido").val(data.apellido);		
 		$("#rtn").val(data.rtn);	
 		$("#telefono").val(data.telefono);	
 		$("#correoelectronico").val(data.correoelectronico);	
+		$("#direccion").val(data.direccion);	
 		$("#tipocliente").val(data.tipocliente);			
 		//$("#tipocliente").val(data.tipocliente).trigger('change');
 		mostrarform(true);

@@ -110,17 +110,32 @@ switch ($_GET['opc']) {
 
 			echo $resp ? "El carro se registro correctante " : " No se puedo realizar";
 		} else {
-			$sql = "UPDATE `carros` SET `marca`='$marca',`modelo`='$modelo'," .
-				"`anio`='$anio',`kilometraje`='$kilometraje',`precioventa`='$precio_venta',`estado`='$estado'  WHERE id='$idcarro'";
-			echo $sql;
+
+
+			$sql = "UPDATE `carros` SET `vin`='$vin',`marca`='$marca',`modelo`='$modelo',`anio`='$anio',`color`='$color',`placa`='$placa',`kilometraje`='$kilometraje',`tipocombustible`='$tipo_combustible',`transmision`='$transmision',`tipocarroceria`='$tipo_carroceria',`preciocompra`='$precio_compra',`precioventa`='$precio_venta',`gastosextra`='$gastosextra',`fechaingreso`='$fecha_ingreso',`estado`='$estado',`observaciones`='$observaciones' WHERE idcarro='$idcarro'";
 			$resp = $categoria->insertar($sql);
+			
+			
+			// $resp = true;
+			// if (count($fotos) > 0) {
+			// 	$categoria->insertar("DELETE FROM fotos_carro WHERE idcarro='$idcarro'");
+
+			// 	foreach($fotos as $foto) {
+			// 	$sql_foto = "INSERT INTO `fotos_carro`(`idcarro`, `ruta`) VALUES ((SELECT idcarro FROM carros WHERE vin='$vin'), '$foto')";
+			// 	$categoria->insertar($sql_foto);
+			// 	$resp = false;
+			// 	}	
+			// }			
+			
+
 			echo $resp ? " El carro se edito correctante " : " No se puedo realizar la edición";
 		}
 
 
 		break;
 	case 'mostrar':
-		$respx = $categoria->mostrar("select * from carros where id='$idcarro'");
+		$respx = $categoria->mostrar("select * from carros where idcarro='$idcarro'");
+		// var_dump($respx);
 		echo json_encode($respx);
 
 		break;
