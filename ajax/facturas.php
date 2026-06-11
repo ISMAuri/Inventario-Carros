@@ -24,7 +24,7 @@ switch ($_GET['opc']) {
 
 		while ($fila = $resp->fetch_object()) {
 			$condicion = 0;
-			if ($fila->estado == "Activo")
+			if ($fila->estado == "Pagada")
 				$condicion = 1;
 			$btnr = "<a class='btn btn-secondary' href='../reportes/rptfactura.php?idfactura=" . $fila->idfactura . "' target='_blank'><i class='fas fa-file-alt' data-toggle='modal' data-target='#exampleModal'></i></a>";
 			$btneditar = "";
@@ -33,15 +33,23 @@ switch ($_GET['opc']) {
 
 				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idfactura . ')" class="btn btn-primary mr-1" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
+			if ($condicion == 1) {
 			if ($_SESSION['anularcl'] == 1) {
-				$btnanular = '<button type="button" onclick="anular(' . $fila->idfactura . ')" class="btn btn-danger mr-1" ><i class="fas fa-eraser"></i></button>';
+				$btnestado = '<button type="button" onclick="anular(' . $fila->idfactura . ')" class="btn btn-danger mr-1" ><i class="fas fa-eraser"></i></button>';
+			}
+			} else {
+				if ($_SESSION['anularcl'] == 1) {
+					$btnestado = '<button type="button" onclick="activar(' . $fila->idfactura . ')" class="btn btn-success mr-1" ><i class="fas fa-check"></i></button>';
+				}
 			}
 
 			$nombre = $categoria->mostrar("select nombre from clientes where idcliente='" . $fila->idcliente . "'");
 			$usuario = $categoria->mostrar("select nombre from usuario where idusuario='" . $fila->idusuario . "'");
 
+			$bg='red';
+			if ($fila->estado == "Pendiente") $bg = 'yellow';
 			$data[] = array(
-				"0" => $btneditar .	$btnanular .$btnr ,
+				"0" => $btneditar .	$btnestado .$btnr ,
 				"1" => $fila->numerofactura,
 				"2" => $fila->fecha,
 				"3" => $nombre['nombre'],
@@ -51,8 +59,8 @@ switch ($_GET['opc']) {
 				"7" => $fila->impuestos,
 				"8" => $fila->total,
 				"9" => $fila->metodopago,
-				"10" => ($condicion) ? '<span class="label bg-green">Activado</span>'
-					: '<span class="label bg-red">Inactivo</span>'
+				"10" => ($condicion) ? '<span class="label bg-green">' . $fila->estado . '</span>'
+					: '<span class="label bg-' . $bg . '">' . $fila->estado . '</span>'
 			);
 		}
 		$results = array(
@@ -66,13 +74,13 @@ switch ($_GET['opc']) {
 		break;
 	case 'anular':
 
-		$respx = $categoria->insertar("update facturas set estado='Inactivo'  where idfactura='$idfactura'");
+		$respx = $categoria->insertar("update facturas set estado='Anulada'  where idfactura='$idfactura'");
 
 		echo $respx ? "El factura ha sido anulado correctamente " : " No se puedo realizar";
 
 		break;
 	case 'activar':
-		$respx = $categoria->insertar("update facturas set estado='Activo'  where idfactura='$idfactura'");
+		$respx = $categoria->insertar("update facturas set estado='Pagada'  where idfactura='$idfactura'");
 
 		echo $respx ? "El factura ha sido activado correctamente " : " No se puedo realizar";
 

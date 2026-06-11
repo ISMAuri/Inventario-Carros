@@ -22,7 +22,7 @@ function mostrarform(bandera) {
   
 }
 function activar(idfactura) {
-  bootbox.confirm("¿Está Seguro de activar el factura?", function (result) {
+  bootbox.confirm("¿Está seguro de marcar la factura como pagada?", function (result) {
     if (result) {
       $.post(
         "../ajax/facturas.php?opc=activar",
@@ -36,7 +36,7 @@ function activar(idfactura) {
   });
 }
 function anular(idfactura) {
-  bootbox.confirm("¿Está Seguro de anular el factura?", function (result) {
+  bootbox.confirm("¿Está seguro de anular la factura?", function (result) {
     if (result) {
       $.post(
         "../ajax/facturas.php?opc=anular",

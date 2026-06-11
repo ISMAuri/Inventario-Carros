@@ -296,14 +296,14 @@
         </li>
 
 <!-- tercer menu -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="reportes.php" class="nav-link">
               <i class="nav-icon fas fa-chart-line"></i>
               <p>
                   Reportes
               </p>
             </a>
-        </li>
+        </li> -->
 
 <!-- 4to menu -->
         <li class="nav-item">
