@@ -26,7 +26,7 @@ function mostrarform(bandera){
 function activar(idcliente){
 
 
-bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
+bootbox.confirm("¿Está seguro de activar el cliente?", function(result){
 		if(result)
         {
         	$.post("../ajax/clientes.php?opc=activar", {idcliente : idcliente}, function(e){
@@ -40,7 +40,7 @@ bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
 function anular(idcliente){
 
 
-bootbox.confirm("¿Está Seguro de anular el cliente?", function(result){
+bootbox.confirm("¿Está seguro de desactivar el estado del cliente?", function(result){
 		if(result)
         {
         	$.post("../ajax/clientes.php?opc=anular", {idcliente : idcliente}, function(e){

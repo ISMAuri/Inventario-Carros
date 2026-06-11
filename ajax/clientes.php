@@ -25,16 +25,23 @@ switch ($_GET['opc']) {
 			if ($fila->estado == "Activo")
 				$condicion = 1;
 			$btneditar = "";
-			$btnanular = "";
+			$btnestado = "";
 			if ($_SESSION['editarcl'] == 1) {
 				
-				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idcliente . ')" class="btn btn-primary" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
+				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idcliente . ')" class="btn btn-primary mr-1" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
+
+			if ($condicion == 1) {
 			if ($_SESSION['anularcl'] == 1) {
-				$btnanular = '<button type="button" onclick="anular(' . $fila->idcliente . ')" class="btn btn-danger" ><i class="fas fa-eraser"></i></button>';
+				$btnestado = '<button type="button" onclick="anular(' . $fila->idcliente . ')" class="btn btn-danger" ><i class="fas fa-eraser"></i></button>';
+			}
+			} else {
+				if ($_SESSION['anularcl'] == 1) {
+					$btnestado = '<button type="button" onclick="activar(' . $fila->idcliente . ')" class="btn btn-success" ><i class="fas fa-check"></i></button>';
+				}
 			}
 			$data[] = array(
-				"0" => $btneditar .	$btnanular,
+				"0" => $btneditar .	$btnestado,
 				"1" => $fila->tipocliente,
 				"2" => $fila->rtn,
 				"3" => $fila->nombre,
