@@ -136,8 +136,6 @@
 
     </div>
 
-    
-
     <br>
 
     
@@ -267,7 +265,7 @@
 
     FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview);
 
-    const pond = FilePond.create(document.querySelector('.filepond'),{
+    const pond = FilePond.create(document.querySelector('#fotos'),{
         acceptedFileTypes: ['image/*'],
         allowMultiple: true,
         imagePreviewHeight: 120,

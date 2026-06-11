@@ -96,7 +96,9 @@ function guardarRegistro(){
 	var formData = new FormData($("#formulario")[0]);
 
 	var fotos = pond.getFiles();
+	// console.log("fotos: ", fotos);
 	fotos.forEach((foto, indice) => {
+		// console.log("foto: ", foto);
 		formData.append("fotos[]", foto.file);
 	});
 
