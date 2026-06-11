@@ -197,23 +197,33 @@ function mostrarCarro() {
           { idcarro: idcarro },
           function (data, status) {
             data = JSON.parse(data);
-            $("#kilometraje").val(data.kilometraje);
-            $("#tipocombustible").val(data.tipocombustible);
-            $("#transmision").val(data.transmision);
-            $("#precioventa").val(data.precioventa);
+            calcularFactura(data.precioventa);
+
           },);
 
 
     }
-    // if (idcarro == 0) {
-    //   $('.datos-carro div select, .datos-carro div input, .datos-carro div textarea').prop('disabled', false);
-    //             $("#nombre").val("");
-    //         $("#tipocliente").val("");
-    //         $("#rtn").val("");
-    //         $("#telefono").val("");
-    //         $("#correoelectronico").val("");
-    //         $("#direccion").val("");
-    //         $("#estado").val("Activo");
-    // }
 
+}
+function calcularFactura(precioventa) {
+    
+  let pventa = parseFloat(precioventa) || 0;
+  let descuento = parseFloat($("#descuento").val()) || 0;
+  let impuestoporcentaje = parseFloat($("#impuestoporcentaje").val()) || 0;
+
+  // 1. Subtotal (después de descuento)
+  let subtotal = pventa - descuento;
+
+  // evitar negativos
+  if (subtotal < 0) subtotal = 0;
+
+  // 2. Impuesto a pagar
+  let impuesto = subtotal * (impuestoporcentaje / 100);
+
+  // 3. Total final
+  let total = subtotal + impuesto;
+
+  $("#subtotal").val(subtotal.toFixed(2));
+  $("#impuestos").val(impuesto.toFixed(2));
+  $("#total").val(total.toFixed(2));
 }

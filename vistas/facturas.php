@@ -152,12 +152,24 @@ if ($_SESSION['crearcl']==1)
     <br>
 
     
-    <h4>Datos del Carro</h4>
+    <h4>Datos de Compra</h4>
     <div class="row">
         <input type="hidden" id="idcarro" name="idcarro">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label>Carro:</label>
             <select name="carro" id="carro" class="form-control" onchange="mostrarCarro()">
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label>Descuento:</label>
+            <input type="number" name="descuento" id="descuento" class="form-control" value="0" min="0" oninput="mostrarCarro()">
+        </div>
+         <div class="col-md-3">
+            <label>Porcentaje Impuestos:</label>
+            <select name="impuestoporcentaje" id="impuestoporcentaje" class="form-control" onchange="mostrarCarro()">
+                <option value="15">15%</option>
+                <option value="18">18%</option>
+                <option value="0">0%</option>
             </select>
         </div>
     </div>
@@ -166,25 +178,20 @@ if ($_SESSION['crearcl']==1)
     <div class="row datos-carro">
 
         <div class="col-md-3">
-            <label>Kilometraje:</label>
-            <input type="text" name="kilometraje" id="kilometraje" class="form-control" readonly>
-        </div>
-
-        <div class="col-md-3">
-            <label>Tipo Combustible:</label>
-            <input type="text" name="tipocombustible" id="tipocombustible" class="form-control" readonly>
+            <label>Subtotal:</label>
+            <input type="text" name="subtotal" id="subtotal" class="form-control" readonly>
         </div>
 
         
         <div class="col-md-3">
-            <label>Transimision:</label>
-            <input type="text" name="transmision" id="transmision" class="form-control" readonly>
+            <label>Impuestos a Pagar:</label>
+            <input type="text" name="impuestos" id="impuestos" class="form-control" readonly>
         </div>
 
     
         <div class="col-md-3">
-            <label>Precio venta:</label>
-            <input type="text" name="precioventa" id="precioventa" class="form-control" readonly>
+            <label>Total:</label>
+            <input type="text" name="total" id="total" class="form-control" readonly>
         </div>
 
 
@@ -194,7 +201,6 @@ if ($_SESSION['crearcl']==1)
 
 
     <br>
-    <h4>Datos de la Factura</h4>
 
     <div class="row">
 
@@ -221,10 +227,6 @@ if ($_SESSION['crearcl']==1)
             </select>
         </div>
 
-        <div class="col-md-3">
-            <label>Descuento:</label>
-            <input type="number" name="descuento" id="descuento" class="form-control">
-        </div>
 
     </div>
 
