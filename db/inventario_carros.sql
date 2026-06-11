@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2026 a las 03:31:16
+-- Tiempo de generación: 12-06-2026 a las 01:00:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -54,13 +54,17 @@ CREATE TABLE `carros` (
 --
 
 INSERT INTO `carros` (`idcarro`, `vin`, `marca`, `modelo`, `anio`, `color`, `placa`, `kilometraje`, `tipocombustible`, `transmision`, `tipocarroceria`, `preciocompra`, `precioventa`, `gastosextra`, `fechaingreso`, `estado`, `observaciones`, `fechacreacion`, `fechaactualizacion`) VALUES
-(1, '1234214', 'Toyota', 'Corolla', 2011, 'rojo', 'HAZ2021', 12000, 'Diesel', 'Manual', NULL, 100000.00, 200000.00, 0.00, '2026-06-01', 'Disponible', 'No tiene defectos', '2026-06-07 21:37:24', '2026-06-07 21:37:24'),
+(1, '1234214', 'Toyota', 'Corolla', 2011, 'rojo', 'HAZ2021', 12000, 'Diesel', 'Manual', 'Hatchback', 100000.00, 200000.00, 0.00, '2026-06-01', 'Disponible', 'No tiene defectos', '2026-06-07 21:37:24', '2026-06-11 22:31:34'),
 (2, '3214214214', 'jsdflksajfd', 'jslkdfjs', 2000, 'jsadfljsalkfd', 'jsalkjsadlkf', 200, '', '', NULL, 299.00, 3000.00, 0.00, '2026-06-01', 'Vendido', 'sadff', '2026-06-07 21:37:24', '2026-06-07 21:37:24'),
 (3, '939452345', 'jsaflkjsaf', 'sajdflkjsaf', 1999, 'ajslkfjsaf', 'ajsdkfajsdf', 9959325, 'Gasolina', 'Automatica', 'Sedan', 2999.00, 4000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:09:13', '2026-06-08 15:09:13'),
-(4, '93945124', 'jsaflkjsaf', 'sajdflkjsaf', 1999, 'ajslkfjsaf', 'ajsdkfajsdf', 9959325, 'Gasolina', 'Automatica', 'Sedan', 2999.00, 4000.00, 0.00, '2000-12-12', 'Disponible', 'jsalkfjsflkjsafd', '2026-06-08 15:09:43', '2026-06-08 15:09:43'),
+(4, '93945124', 'jsaflkjsaf', 'sajdflkjsaf', 1999, 'ajslkfjsaf', 'ajsdkfajsdf', 9959325, 'Gasolina', 'Automatica', 'Sedan', 2999.00, 4000.00, 0.00, '2000-12-12', 'Mantenimiento', 'jsalkfjsflkjsafd', '2026-06-08 15:09:43', '2026-06-11 21:51:38'),
 (5, '124921943212', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', 'sajdflksjf', '2026-06-08 15:28:56', '2026-06-08 15:28:56'),
 (7, '124921943212123', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:29:44', '2026-06-08 15:29:44'),
-(9, '1249219432', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:30:22', '2026-06-08 15:30:22');
+(9, '1249219432', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:30:22', '2026-06-08 15:30:22'),
+(10, '124921943', 'jflksaf', 'jsadlkfjsafda', 2000, 'jsalkfjsf', 'jaslkfdj', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', 'jcalksdfjaf', '2026-06-11 15:00:29', '2026-06-11 15:00:29'),
+(11, '1000', 'jsadlkfjsa', 'jdsalkfjsadf', 1000, 'dsjflkdsj', 'jaslkdfjfds', 1000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 1550.00, 0.00, '1000-12-12', 'Disponible', 'samdsjflk', '2026-06-11 15:09:17', '2026-06-11 15:09:17'),
+(12, '10000', 'jsadlkfjsa', 'jdsalkfjsadf', 1000, 'dsjflkdsj', 'jaslkdfjfds', 1000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 1550.00, 0.00, '1000-12-12', 'Disponible', '', '2026-06-11 15:16:49', '2026-06-11 21:51:45'),
+(14, '124921943290', 'Hyundai', 'Elantra', 2014, 'Gris', 'ZSA2021', 1000, 'Hibrido', 'CVT', 'Sedan', 120000.00, 250000.00, 200.00, '2022-02-03', 'Mantenimiento', '', '2026-06-11 21:37:06', '2026-06-11 21:52:59');
 
 -- --------------------------------------------------------
 
@@ -86,7 +90,7 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`idcliente`, `tipocliente`, `rtn`, `nombre`, `telefono`, `correoelectronico`, `direccion`, `fecharegistro`, `estado`) VALUES
 (1, 'Natural', '01012006040529', 'Ismael Mauricio Castillo Castro', '99758196', 'imcastillocastro@gmail.com', 'Col Raul Pineda', '2026-06-08 17:43:01', 'Activo'),
-(2, 'Natural', '01012004050242', 'David Castillo Castro', '95030402', 'david@gmail.com', 'col F', '2026-06-09 23:10:36', 'Activo');
+(2, 'Juridica', '2021145323451', 'LARECOTURH', '99554422', 'admin@larecoturh.org', 'Col Buenos Aire', '2026-06-11 21:40:14', 'Activo');
 
 -- --------------------------------------------------------
 
@@ -105,8 +109,8 @@ CREATE TABLE `empresa` (
   `sitio_web` varchar(150) DEFAULT NULL,
   `logotipo` varchar(255) DEFAULT NULL,
   `estado` enum('Activa','Inactiva') DEFAULT 'Activa',
-  `fecha_registro` datetime DEFAULT current_timestamp(),
-  `fecha_actualizacion` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha_registro` timestamp NULL DEFAULT current_timestamp(),
+  `fecha_actualizacion` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -114,10 +118,10 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`id_empresa`, `nombre`, `razon_social`, `rtn`, `direccion`, `telefono`, `correo`, `sitio_web`, `logotipo`, `estado`, `fecha_registro`, `fecha_actualizacion`) VALUES
-(1, 'LARECOTURH', 'LAPROCOTURH', '0101200504032', 'Col X', '99776655', 'imcast@gmail.com', 'youtube.com', '1780763858.png', 'Inactiva', '2026-06-05 18:35:50', '2026-06-06 14:39:16'),
-(2, 'CEUTEC', 'Centro Universitario Tecnologico', '164332421419', 'Col Mall1', '998899001', 'ceutec@gmail.com1', 'ceutec.com', '1780763847.png', 'Activa', '2026-06-05 18:54:21', '2026-06-06 10:37:27'),
-(3, 'Comida', 'Comida R de LC', '010122352', 'dsajflkdsajf', '34534532', 'sajdlksaf@gmail.com', 'jsflksfs.com', '1780779032.jpg', 'Activa', '2026-06-05 18:59:48', '2026-06-06 14:50:32'),
-(4, 'Nueva', 'Nueva', '32942143', 'Col Fz', '99004422', 'jfsakf@gmail.com', 'jdflkasfd.com', '1780779022.png', 'Inactiva', '2026-06-05 19:09:43', '2026-06-06 14:50:22');
+(1, 'LARECOTURH', 'LAPROCOTURH', '0101200504032', 'Col X', '99776655', 'imcast@gmail.com', 'youtube.com', '1780763858.png', 'Inactiva', '2026-06-05 06:00:00', '2026-06-06 06:00:00'),
+(2, 'CEUTEC', 'Centro Universitario Tecnologico', '164332421419', 'Col Mall1', '998899001', 'ceutec@gmail.com1', 'ceutec.com', '1780763847.png', 'Activa', '2026-06-05 06:00:00', '2026-06-06 06:00:00'),
+(3, 'Comida', 'Comida R de LC', '010122352', 'dsajflkdsajf', '34534532', 'sajdlksaf@gmail.com', 'jsflksfs.com', '1780779032.jpg', 'Activa', '2026-06-05 06:00:00', '2026-06-06 06:00:00'),
+(4, 'Nueva', 'Nueva', '32942143', 'Col Fz', '99004422', 'jfsakf@gmail.com', 'jdflkasfd.com', '1780779022.png', 'Inactiva', '2026-06-05 06:00:00', '2026-06-06 06:00:00');
 
 -- --------------------------------------------------------
 
@@ -133,6 +137,7 @@ CREATE TABLE `facturas` (
   `idusuario` int(11) DEFAULT NULL,
   `subtotal` decimal(10,2) NOT NULL,
   `descuento` decimal(10,2) DEFAULT 0.00,
+  `impuestoporcentaje` enum('0%','15%','18%') DEFAULT NULL,
   `impuestos` decimal(10,2) DEFAULT 0.00,
   `total` decimal(10,2) NOT NULL,
   `metodopago` enum('Efectivo','Tarjeta','Transferencia') NOT NULL,
@@ -144,8 +149,13 @@ CREATE TABLE `facturas` (
 -- Volcado de datos para la tabla `facturas`
 --
 
-INSERT INTO `facturas` (`idfactura`, `numerofactura`, `fecha`, `idcliente`, `idusuario`, `subtotal`, `descuento`, `impuestos`, `total`, `metodopago`, `estado`, `idcarro`) VALUES
-(1, 'F-001', '2026-06-09 00:12:55', 1, 4, 200.00, 2.00, 200.00, 800.00, 'Efectivo', 'Pendiente', 1);
+INSERT INTO `facturas` (`idfactura`, `numerofactura`, `fecha`, `idcliente`, `idusuario`, `subtotal`, `descuento`, `impuestoporcentaje`, `impuestos`, `total`, `metodopago`, `estado`, `idcarro`) VALUES
+(1, 'F-001', '2026-06-09 00:12:55', 1, 4, 200.00, 2.00, '15%', 200.00, 800.00, 'Efectivo', 'Pendiente', 1),
+(7, 'F-001', '2026-06-11 00:00:00', 1, 4, 0.00, 0.00, '', 0.00, 0.00, 'Efectivo', 'Pendiente', 2),
+(8, 'F-007', '2026-06-11 00:00:00', 1, 4, 0.00, 0.00, '0%', 0.00, 0.00, 'Efectivo', 'Pagada', 9),
+(9, 'F-009', '2026-06-11 00:00:00', 1, 4, 200000.00, 0.00, '', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 3),
+(10, 'F-0010', '2026-06-11 00:00:00', 1, 4, 200000.00, 0.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Anulada', 1),
+(13, 'F-0011', '2026-06-11 00:00:00', 1, 4, 200000.00, 0.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 1);
 
 -- --------------------------------------------------------
 
@@ -166,7 +176,13 @@ CREATE TABLE `fotos_carro` (
 INSERT INTO `fotos_carro` (`idfoto`, `idcarro`, `ruta`) VALUES
 (1, 9, '1780932623_0.png'),
 (2, 9, '1780932623_1.png'),
-(3, 9, '1780932623_2.png');
+(3, 9, '1780932623_2.png'),
+(4, 11, '1781190557_0.png'),
+(5, 11, '1781190557_1.png'),
+(6, 11, '1781190557_2.png'),
+(9, 12, '1781191163_0.png'),
+(10, 14, '1781213826_0.png'),
+(11, 14, '1781213826_1.png');
 
 -- --------------------------------------------------------
 
@@ -196,6 +212,41 @@ INSERT INTO `permiso` (`idpermiso`, `nombre`) VALUES
 (10, 'crear_empresa'),
 (11, 'editar_empresa'),
 (12, 'anular_empresa');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `permisos`
+--
+
+CREATE TABLE `permisos` (
+  `idpermiso` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `permisos`
+--
+
+INSERT INTO `permisos` (`idpermiso`, `nombre`) VALUES
+(1, 'ver_dashboard'),
+(2, 'ver_inventario'),
+(3, 'crear_inventario'),
+(4, 'editar_inventario'),
+(5, 'cambiar_estado_inventario'),
+(6, 'ver_fotografias'),
+(7, 'ver_clientes'),
+(8, 'crear_clientes'),
+(9, 'editar_clientes'),
+(10, 'cambiar_estado_clientes'),
+(11, 'ver_facturas'),
+(12, 'crear_facturas'),
+(13, 'editar_facturas'),
+(14, 'cambiar_estado_facturas'),
+(15, 'ver_usuarios'),
+(16, 'crear_usuarios'),
+(17, 'editar_usuarios'),
+(18, 'cambiar_estado_usuarios');
 
 -- --------------------------------------------------------
 
@@ -338,7 +389,7 @@ ALTER TABLE `facturas`
   ADD PRIMARY KEY (`idfactura`),
   ADD KEY `idcliente` (`idcliente`),
   ADD KEY `idusuario` (`idusuario`),
-  ADD KEY `fk_factura_carro` (`idcarro`);
+  ADD KEY `fk_facturas_carro` (`idcarro`);
 
 --
 -- Indices de la tabla `fotos_carro`
@@ -351,6 +402,12 @@ ALTER TABLE `fotos_carro`
 -- Indices de la tabla `permiso`
 --
 ALTER TABLE `permiso`
+  ADD PRIMARY KEY (`idpermiso`);
+
+--
+-- Indices de la tabla `permisos`
+--
+ALTER TABLE `permisos`
   ADD PRIMARY KEY (`idpermiso`);
 
 --
@@ -382,7 +439,7 @@ ALTER TABLE `usuario_permiso`
 -- AUTO_INCREMENT de la tabla `carros`
 --
 ALTER TABLE `carros`
-  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -400,19 +457,25 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos_carro`
 --
 ALTER TABLE `fotos_carro`
-  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
 --
 ALTER TABLE `permiso`
   MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
@@ -436,7 +499,7 @@ ALTER TABLE `usuario`
 ALTER TABLE `facturas`
   ADD CONSTRAINT `facturas_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `clientes` (`idcliente`),
   ADD CONSTRAINT `facturas_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`),
-  ADD CONSTRAINT `fk_factura_carro` FOREIGN KEY (`idcarro`) REFERENCES `carros` (`idcarro`);
+  ADD CONSTRAINT `fk_facturas_carro` FOREIGN KEY (`idcarro`) REFERENCES `carros` (`idcarro`);
 
 --
 -- Filtros para la tabla `fotos_carro`
