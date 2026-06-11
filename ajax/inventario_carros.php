@@ -1,4 +1,6 @@
 <?PHP
+
+session_start();
 require_once "../modelo/ejecutarSQL.php";
 $categoria = new ejecutarSQL();
 
@@ -34,13 +36,27 @@ switch ($_GET['opc']) {
 			if ($fila->estado == "Disponible")
 				$condicion = 1;
 
-			$data[] = array(
-				"0" => ($condicion) ?
-					'<button type="button" onclick="mostrar(' . $fila->idcarro . ')" class="btn btn-primary" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>' .
-					'<button type="button" onclick="anular(' . $fila->idcarro . ')" class="btn btn-success" ><i class="fas fa-eraser"></i></button>' :
-					'<button type="button" onclick="mostrar(' . $fila->idcarro . ')" class="btn btn-primary" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>' .
 
-					'<button type="button" onclick="activar(' . $fila->idcarro . ')" class="btn btn-danger" ><i class="fas fa-calendar-check"></i></button>',
+			$btndetalles = "<a class='btn btn-secondary' href='../reportes/rptcarro.php?idcarro=" . $fila->idcarro . "' target='_blank'><i class='fas fa-info-circle' data-toggle='modal' data-target='#exampleModal'></i></a>";
+			$btnestado = "";
+			$btneditar = "";
+			if ($_SESSION['editarcl'] == 1) {
+				
+				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idcarro . ')" class="btn btn-primary mr-1" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
+			}
+
+			if ($condicion == 1) {
+			if ($_SESSION['anularcl'] == 1) {
+				$btnestado = '<button type="button" onclick="anular(' . $fila->idcarro . ')" class="btn btn-warning mr-1" ><i class="fas fa-wrench"></i></button>';
+			}
+			} else {
+				if ($_SESSION['anularcl'] == 1) {
+					$btnestado = '<button type="button" onclick="activar(' . $fila->idcarro . ')" class="btn btn-success mr-1" ><i class="fas fa-check"></i></button>';
+				}
+			}
+
+			$data[] = array(
+				"0" => $btneditar.$btnestado.$btndetalles,
 				"1" => $fila->vin,
 				"2" => $fila->marca,
 				"3" => $fila->modelo,
@@ -61,17 +77,17 @@ switch ($_GET['opc']) {
 		break;
 	case 'anular':
 
-		$respx = $categoria->insertar("update carros set estado='Vendido' where id='$idcarro'");
+		$respx = $categoria->insertar("update carros set estado='Mantenimiento' where idcarro='$idcarro'");
 
-		echo $respx ? "El carro ha sido anulado correctamente " : " No se puedo realizar";
+		echo $respx ? "El carro ha sido puesto en mantenimiento correctamente " : " No se puedo realizar";
 
 		break;
 
 	case 'activar':
 
-		$respx = $categoria->insertar("update carros set estado='Disponible' where id='$idcarro'");
+		$respx = $categoria->insertar("update carros set estado='Disponible' where idcarro='$idcarro'");
 
-		echo $respx ? "El carro nuevamente activo correctante " : " No se puedo realizar";
+		echo $respx ? "El carro ha sido activado correctamente " : " No se puedo realizar";
 
 		break;
 

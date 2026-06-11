@@ -37,8 +37,9 @@
             <div class="info-box shadow-none">
               <span class="info-box-icon bg-info"><i class="fas fa-tachometer-alt"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Inventario de Carros</span>
-                <span class="info-box-number">None</span>
+                <!-- <span class="info-box-text">Inventario de Carros</span> -->
+                <span class="info-box-number">Inventario de Carros</span>
+                <!-- <span class="info-box-number">None</span> -->
               </div>
             </div>
             </a>
@@ -49,8 +50,8 @@
             <div class="info-box shadow-sm">
               <span class="info-box-icon bg-success"><i class="fas fa-camera"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Fotografías de Carros</span>
-                <span class="info-box-number">Small</span>
+                <span class="info-box-number">Fotografías de Carros</span>
+                <!-- <span class="info-box-number">Small</span> -->
               </div>
             </div>
             </a>
@@ -61,8 +62,8 @@
             <div class="info-box shadow">
               <span class="info-box-icon bg-warning"><i class="fas fa-users"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Clientes</span>
-                <span class="info-box-number">Regular</span>
+                <span class="info-box-number">Clientes</span>
+                <!-- <span class="info-box-number">Regular</span> -->
               </div>
             </div>
             </a>
@@ -73,8 +74,8 @@
             <div class="info-box shadow-lg">
               <span class="info-box-icon bg-danger"><i class="fas fa-file-invoice"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Facturas</span>
-                <span class="info-box-number">Large</span>
+                <span class="info-box-number">Facturas</span>
+                <!-- <span class="info-box-number">Large</span> -->
               </div>
             </div>
             </a>
@@ -85,8 +86,8 @@
             <div class="info-box shadow-none">
               <span class="info-box-icon bg-info"><i class="fas fa-chart-bar"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Reportes</span>
-                <span class="info-box-number">None</span>
+                <span class="info-box-number">Reportes</span>
+                <!-- <span class="info-box-number">None</span> -->
               </div>
             </div>
             </a>
@@ -97,8 +98,8 @@
             <div class="info-box shadow-none">
               <span class="info-box-icon bg-info"><i class="fas fa-user-cog"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Control de Usuarios</span>
-                <span class="info-box-number">None</span>
+                <span class="info-box-number">Control de Usuarios</span>
+                <!-- <span class="info-box-number">None</span> -->
               </div>
             </div>
             </a>

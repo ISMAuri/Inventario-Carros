@@ -22,13 +22,13 @@ function mostrarform(bandera){
     }
 
 }
-function activar(idcategoria){
+function activar(idcarro){
 
 
 bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
 		if(result)
         {
-        	$.post("../ajax/inventario_carros.php?opc=activar", {idcategoria : idcategoria}, function(e){
+        	$.post("../ajax/inventario_carros.php?opc=activar", {idcarro : idcarro}, function(e){
         		bootbox.alert(e);
 	            tabla.ajax.reload();
         	});	
@@ -36,13 +36,13 @@ bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
 	})
 	
 }
-function anular(idcategoria){
+function anular(idcarro){
 
 
 bootbox.confirm("¿Está Seguro de anular el cliente?", function(result){
 		if(result)
         {
-        	$.post("../ajax/inventario_carros.php?opc=anular", {idcategoria : idcategoria}, function(e){
+        	$.post("../ajax/inventario_carros.php?opc=anular", {idcarro : idcarro}, function(e){
         		bootbox.alert(e);
 	            tabla.ajax.reload();
         	});	
