@@ -41,12 +41,13 @@ switch ($_GET['opc']) {
 					'<button type="button" onclick="mostrar(' . $fila->idcarro . ')" class="btn btn-primary" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>' .
 
 					'<button type="button" onclick="activar(' . $fila->idcarro . ')" class="btn btn-danger" ><i class="fas fa-calendar-check"></i></button>',
-				"1" => $fila->marca,
-				"2" => $fila->modelo,
-				"3" => $fila->anio,
-				"4" => $fila->kilometraje,
-				"5" => $fila->precioventa,
-				"6" => $fila->estado
+				"1" => $fila->vin,
+				"2" => $fila->marca,
+				"3" => $fila->modelo,
+				"4" => $fila->anio,
+				"5" => $fila->kilometraje,
+				"6" => $fila->precioventa,
+				"7" => $fila->estado
 			);
 		}
 		$results = array(
@@ -119,14 +120,14 @@ switch ($_GET['opc']) {
 			$resp = $categoria->insertar($sql);
 			
 			
-			// if (count($fotos) > 0) {
-			// 	$categoria->insertar("DELETE FROM fotos_carro WHERE idcarro='$idcarro'");
+			if (count($fotos) > 0) {
+				$categoria->insertar("DELETE FROM fotos_carro WHERE idcarro='$idcarro'");
 
-			// 	foreach($fotos as $foto) {
-			// 	$sql_foto = "INSERT INTO `fotos_carro`(`idcarro`, `ruta`) VALUES ((SELECT idcarro FROM carros WHERE vin='$vin'), '$foto')";
-			// 	$categoria->insertar($sql_foto);
-			// 	}	
-			// }			
+				foreach($fotos as $foto) {
+				$sql_foto = "INSERT INTO `fotos_carro`(`idcarro`, `ruta`) VALUES ((SELECT idcarro FROM carros WHERE vin='$vin'), '$foto')";
+				$categoria->insertar($sql_foto);
+				}	
+			}			
 			
 			// var_dump($fotos);
 

@@ -47,6 +47,7 @@
                   <thead>
                   <tr>
                     <th>Opciones</th>
+                    <th>VIN</th>   
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Año</th>                    
@@ -61,6 +62,7 @@
                   <tfoot>
                   <tr>
                     <th>Opciones</th>
+                    <th>VIN</th>
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Año</th>                    
