@@ -15,6 +15,7 @@ $correoelectronico           = isset($_POST['correoelectronico']) ? limpiarCaden
 $direccion        = isset($_POST['direccion']) ? limpiarCadena($_POST['direccion']) : "";
 $estado    = isset($_POST['estado']) ? limpiarCadena($_POST['estado']) : "";
 $idcliente    = isset($_POST['idcliente']) ? limpiarCadena($_POST['idcliente']) : "";
+$idcarro    = isset($_POST['idcarro']) ? limpiarCadena($_POST['idcarro']) : "";
 
 switch ($_GET['opc']) {
 
@@ -115,13 +116,17 @@ switch ($_GET['opc']) {
 		echo json_encode($respx);
 		break;
 		
+	case 'mostrarCarro':
+		$respx = $categoria->mostrar("select * from carros where idcarro='$idcarro'");
+		echo json_encode($respx);
+		break;
 	case 'datosCarro':
 		$resp = $categoria->listar("select * from carros where estado='Disponible'");
 		$datos = "";
-		var_dump("Sdfsafsdaf");
 		while ($fila = $resp->fetch_object()) {
-			$datos .= "<option value='$fila->idcarro'>$fila->placa - $fila->marca</option>";
+			$datos .= "<option value='$fila->idcarro'>Placa: $fila->placa - Vin: $fila->vin - $fila->marca $fila->modelo </option>";
 		}
+
 		echo $datos;
 		break;
 	default:

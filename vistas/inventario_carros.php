@@ -181,13 +181,18 @@
     <br>
 
     <div class="row">
-
         <div class="col-md-3">
+            <label>Gastos Extra:</label>
+            <input type="number" name="gastosextra" id="gastosextra" class="form-control" value="0">
+            
+        </div>
+
+        <div class="col-md-2">
             <label>Fecha de Ingreso:</label>
             <input type="date" name="fechaingreso" id="fechaingreso" class="form-control">
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label>Estado:</label>
             <select name="estado" id="estado" class="form-control">
                 <option value="Disponible">Disponible</option>
@@ -196,8 +201,9 @@
                 <option value="Mantenimiento">Mantenimiento</option>
             </select>
         </div>
+        
 
-        <div class="col-md-6">
+        <div class="col-md-5">
             <label>Observaciones:</label>
             <textarea name="observaciones" id="observaciones" class="form-control"></textarea>
         </div>

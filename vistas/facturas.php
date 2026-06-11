@@ -154,7 +154,7 @@ if ($_SESSION['crearcl']==1)
     
     <h4>Datos del Carro</h4>
     <div class="row">
-
+        <input type="hidden" id="idcarro" name="idcarro">
         <div class="col-md-5">
             <label>Carro:</label>
             <select name="carro" id="carro" class="form-control">
@@ -165,28 +165,28 @@ if ($_SESSION['crearcl']==1)
 
     <div class="row datos-carro">
 
-        <!-- <div class="col-md-3">
-            <label>Tipo de Cliente:</label>
-            <select name="tipocliente" id="tipocliente" class="form-control">
-                <option value="Natural">Natural</option>
-                <option value="Juridica">Jurídica</option>
-            </select>
-        </div>
         <div class="col-md-3">
-            <label>RTN:</label>
-            <input type="text" name="rtn" id="rtn" class="form-control">
+            <label>Kilometraje:</label>
+            <input type="text" name="kilometraje" id="kilometraje" class="form-control" readonly>
         </div>
 
         <div class="col-md-3">
-            <label>Nombre Completo / Razón Social:</label>
-            <input type="text" name="nombre" id="nombre" class="form-control">
+            <label>Tipo Combustible:</label>
+            <input type="text" name="tipocombustible" id="tipocombustible" class="form-control" readonly>
         </div>
 
-
+        
         <div class="col-md-3">
-            <label>Teléfono:</label>
-            <input type="text" name="telefono" id="telefono" class="form-control">
-        </div> -->
+            <label>Transimision:</label>
+            <input type="text" name="transmision" id="transmision" class="form-control" readonly>
+        </div>
+
+    
+        <div class="col-md-3">
+            <label>Precio venta:</label>
+            <input type="text" name="precioventa" id="precioventa" class="form-control" readonly>
+        </div>
+
 
     </div>
 

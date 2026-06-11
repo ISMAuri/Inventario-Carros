@@ -10,6 +10,7 @@ function mostrarform(bandera) {
   if (bandera) {
     $("#listadoregistros").hide();
     $("#formularioregistro").show();
+    mostrarCarro();
   } else {
     $("#listadoregistros").show();
     $("#formularioregistro").hide();
@@ -171,7 +172,7 @@ function mostrarCliente() {
     }
     if (idcliente == 0) {
       $('.datos-cliente div select, .datos-cliente div input, .datos-cliente div textarea').prop('disabled', false);
-                $("#nombre").val("");
+            $("#nombre").val("");
             $("#tipocliente").val("");
             $("#rtn").val("");
             $("#telefono").val("");
@@ -186,27 +187,24 @@ function mostrarCliente() {
 
 
 function mostrarCarro() {
-    // idcarro = $("#carro").val();
-    // // alert(idcarro);
+    idcarro = $("#carro").val();
+    // alert(idcarro);
 
-    // if (idcarro != 0) {
-    //   $('.datos-carro div select, .datos-carro div input, .datos-carro div textarea').prop('disabled', true);
-    //   $.post(
-    //       "../ajax/facturas.php?opc=datosCarro",
-    //       { idcarro: idcarro },
-    //       function (data, status) {
-    //         data = JSON.parse(data);
-    //         $("#nombre").val(data.nombre);
-    //         $("#tipocliente").val(data.tipocliente);
-    //         $("#rtn").val(data.rtn);
-    //         $("#telefono").val(data.telefono);
-    //         $("#correoelectronico").val(data.correoelectronico);
-    //         $("#direccion").val(data.direccion);
-    //         $("#estado").val(data.estado);
-    //       },);
+    if (idcarro != 0) {
+      $('.datos-carro div select, .datos-carro div input, .datos-carro div textarea').prop('disabled', true);
+      $.post(
+          "../ajax/facturas.php?opc=mostrarCarro",
+          { idcarro: idcarro },
+          function (data, status) {
+            data = JSON.parse(data);
+            $("#kilometraje").val(data.kilometraje);
+            $("#tipocombustible").val(data.tipocombustible);
+            $("#transmision").val(data.transmision);
+            $("#precioventa").val(data.precioventa);
+          },);
 
 
-    // }
+    }
     // if (idcarro == 0) {
     //   $('.datos-carro div select, .datos-carro div input, .datos-carro div textarea').prop('disabled', false);
     //             $("#nombre").val("");
