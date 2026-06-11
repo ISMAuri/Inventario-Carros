@@ -26,21 +26,22 @@ switch ($_GET['opc']) {
 			$condicion = 0;
 			if ($fila->estado == "Activo")
 				$condicion = 1;
+			$btnr = "<a class='btn btn-secondary' href='../reportes/rptfactura.php?idfactura=" . $fila->idfactura . "' target='_blank'><i class='fas fa-file-alt' data-toggle='modal' data-target='#exampleModal'></i></a>";
 			$btneditar = "";
 			$btnanular = "";
 			if ($_SESSION['editarcl'] == 1) {
 
-				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idfactura . ')" class="btn btn-primary" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
+				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idfactura . ')" class="btn btn-primary mr-1" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
 			if ($_SESSION['anularcl'] == 1) {
-				$btnanular = '<button type="button" onclick="anular(' . $fila->idfactura . ')" class="btn btn-danger" ><i class="fas fa-eraser"></i></button>';
+				$btnanular = '<button type="button" onclick="anular(' . $fila->idfactura . ')" class="btn btn-danger mr-1" ><i class="fas fa-eraser"></i></button>';
 			}
 
 			$nombre = $categoria->mostrar("select nombre from clientes where idcliente='" . $fila->idcliente . "'");
 			$usuario = $categoria->mostrar("select nombre from usuario where idusuario='" . $fila->idusuario . "'");
 
 			$data[] = array(
-				"0" => $btneditar .	$btnanular,
+				"0" => $btneditar .	$btnanular .$btnr ,
 				"1" => $fila->numerofactura,
 				"2" => $fila->fecha,
 				"3" => $nombre['nombre'],
