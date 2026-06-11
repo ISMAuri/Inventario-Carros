@@ -157,7 +157,7 @@ if ($_SESSION['crearcl']==1)
         <input type="hidden" id="idcarro" name="idcarro">
         <div class="col-md-5">
             <label>Carro:</label>
-            <select name="carro" id="carro" class="form-control">
+            <select name="carro" id="carro" class="form-control" onchange="mostrarCarro()">
             </select>
         </div>
     </div>
