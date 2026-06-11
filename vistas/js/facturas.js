@@ -11,6 +11,8 @@ function mostrarform(bandera) {
     $("#listadoregistros").hide();
     $("#formularioregistro").show();
     mostrarCarro();
+    obtenerDatosFactura();
+    obtenerDatosCarro();
   } else {
     $("#listadoregistros").show();
     $("#formularioregistro").hide();
@@ -153,12 +155,14 @@ function mostrarCliente() {
     // alert(idcliente);
 
     if (idcliente != 0) {
-      $('.datos-cliente div select, .datos-cliente div input, .datos-cliente div textarea').prop('disabled', true);
+      $('.datos-cliente div select, .datos-cliente div input, .datos-cliente div textarea').prop('readonly', true);
       $.post(
           "../ajax/facturas.php?opc=datosCliente",
           { idcliente: idcliente },
           function (data, status) {
             data = JSON.parse(data);
+            console.log("Datos del cliente:", data);
+            $("#idcliente").val(data.idcliente);
             $("#nombre").val(data.nombre);
             $("#tipocliente").val(data.tipocliente);
             $("#rtn").val(data.rtn);
@@ -171,7 +175,7 @@ function mostrarCliente() {
 
     }
     if (idcliente == 0) {
-      $('.datos-cliente div select, .datos-cliente div input, .datos-cliente div textarea').prop('disabled', false);
+      $('.datos-cliente div select, .datos-cliente div input, .datos-cliente div textarea').prop('readonly', false);
             $("#nombre").val("");
             $("#tipocliente").val("");
             $("#rtn").val("");
@@ -191,7 +195,7 @@ function mostrarCarro() {
     // alert(idcarro);
 
     if (idcarro != 0) {
-      $('.datos-carro div select, .datos-carro div input, .datos-carro div textarea').prop('disabled', true);
+      $('.datos-carro div select, .datos-carro div input, .datos-carro div textarea').prop('readonly', true);
       $.post(
           "../ajax/facturas.php?opc=mostrarCarro",
           { idcarro: idcarro },

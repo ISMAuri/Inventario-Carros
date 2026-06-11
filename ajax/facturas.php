@@ -5,17 +5,16 @@ $categoria = new ejecutarSQL();
 
 $idfactura = isset($_POST['idfactura']) ? limpiarCadena($_POST['idfactura']) : "";
 
-$tipofactura = isset($_POST['tipofactura']) ? limpiarCadena($_POST['tipofactura']) : "";
-$rtn        = isset($_POST['rtn']) ? limpiarCadena($_POST['rtn']) : "";
-$nombre           = isset($_POST['nombre']) ? limpiarCadena($_POST['nombre']) : "";
-$telefono         = isset($_POST['telefono']) ? limpiarCadena($_POST['telefono']) : "";
-
-$correoelectronico           = isset($_POST['correoelectronico']) ? limpiarCadena($_POST['correoelectronico']) : "";
-
-$direccion        = isset($_POST['direccion']) ? limpiarCadena($_POST['direccion']) : "";
 $estado    = isset($_POST['estado']) ? limpiarCadena($_POST['estado']) : "";
 $idcliente    = isset($_POST['idcliente']) ? limpiarCadena($_POST['idcliente']) : "";
 $idcarro    = isset($_POST['idcarro']) ? limpiarCadena($_POST['idcarro']) : "";
+$fecha	= isset($_POST['fecha']) ? limpiarCadena($_POST['fecha']) : "";
+$subtotal	= isset($_POST['subtotal']) ? limpiarCadena($_POST['subtotal']) : "";
+$descuento	= isset($_POST['descuento']) ? limpiarCadena($_POST['descuento']) : "";
+$impuestoporcentaje	= isset($_POST['impuestoporcentaje']) ? limpiarCadena($_POST['impuestoporcentaje']) : "";
+$impuestos	= isset($_POST['impuestos']) ? limpiarCadena($_POST['impuestos']) : "";
+$total	= isset($_POST['total']) ? limpiarCadena($_POST['total']) : "";
+$metodopago	= isset($_POST['metodopago']) ? limpiarCadena($_POST['metodopago']) : "";
 
 switch ($_GET['opc']) {
 
@@ -81,13 +80,22 @@ switch ($_GET['opc']) {
 	case 'guardaryeditar':
 
 		if (empty($idfactura)) {
-			$sql = "INSERT INTO `facturas`(`tipofactura`, `rtn`, `nombre`, `telefono`, `correoelectronico`, `direccion`, `estado`) VALUES ('$tipofactura','$rtn','$nombre','$telefono','$correoelectronico','$direccion','$estado')";
-			// echo $sql;
+
+
+			$ultimoid = $categoria->mostrar("SELECT MAX(idfactura) as id FROM facturas");
+			$id = $ultimoid['id'] + 1;
+			$idcarro = isset($_POST['carro']) ? limpiarCadena($_POST['carro']) : "";
+			$idusuario = $_SESSION['idusuario'];
+			$sql = "INSERT INTO facturas (numerofactura, fecha, idcliente, idusuario, subtotal, descuento,
+				impuestoporcentaje, impuestos, total, metodopago, estado, idcarro
+				) VALUES ('F-00$id','$fecha','$idcliente','$idusuario',
+				'$subtotal','$descuento','$impuestoporcentaje%','$impuestos','$total','$metodopago',
+				'$estado','$idcarro')";
 			$resp = $categoria->insertar($sql);
 
 			echo $resp ? "El factura se registro correctante " : " No se puedo realizar";
 		} else {
-			$sql = "UPDATE `facturas` SET `tipofactura`='$tipofactura',`rtn`='$rtn',`nombre`='$nombre',`telefono`='$telefono',`correoelectronico`='$correoelectronico',`direccion`='$direccion',`estado`='$estado' WHERE idfactura='$idfactura'";
+			$sql = "UPDATE `facturas` SET `fecha`='$fecha',`subtotal`='$subtotal',`descuento`='$descuento',`impuestoporcentaje`='$impuestoporcentaje',`impuestos`='$impuestos',`total`='$total',`metodopago`='$metodopago',`idcarro`='$idcarro' WHERE idfactura='$idfactura'";
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
 			echo $resp ? " El factura se edito correctante " : " No se puedo realizar la edición";
@@ -100,22 +108,22 @@ switch ($_GET['opc']) {
 		echo json_encode($respx);
 
 		break;
-	
+
 	case 'datosFactura':
 		$resp = $categoria->listar("select * from clientes where estado='Activo'");
 		$datos = "<option value='0'>Cliente Nuevo</option>";
 		while ($fila = $resp->fetch_object()) {
-			
+
 			$datos .= "<option value='$fila->idcliente'>$fila->rtn - $fila->nombre</option>";
 		}
-		
+
 		echo $datos;
 		break;
 	case 'datosCliente':
 		$respx = $categoria->mostrar("select * from clientes where idcliente='$idcliente'");
 		echo json_encode($respx);
 		break;
-		
+
 	case 'mostrarCarro':
 		$respx = $categoria->mostrar("select * from carros where idcarro='$idcarro'");
 		echo json_encode($respx);

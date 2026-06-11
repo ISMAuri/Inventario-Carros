@@ -82,7 +82,8 @@ if ($_SESSION['crearcl']==1)
       <h3><b>Crear Factura</b></h3>
       <br>
      <form id="formulario" method="POST">
-    <input type="hidden" id="idcliente"  name="idcliente">
+        <input type="hidden" id="idcliente"  name="idcliente">
+        <input type="hidden" id="idcarro" name="idcarro">
 
 
     <h4>Datos del Cliente</h4>
@@ -154,7 +155,6 @@ if ($_SESSION['crearcl']==1)
     
     <h4>Datos de Compra</h4>
     <div class="row">
-        <input type="hidden" id="idcarro" name="idcarro">
         <div class="col-md-6">
             <label>Carro:</label>
             <select name="carro" id="carro" class="form-control" onchange="mostrarCarro()">
@@ -179,19 +179,19 @@ if ($_SESSION['crearcl']==1)
 
         <div class="col-md-3">
             <label>Subtotal:</label>
-            <input type="text" name="subtotal" id="subtotal" class="form-control" readonly>
+            <input type="text" name="subtotal" id="subtotal" class="form-control">
         </div>
 
         
         <div class="col-md-3">
             <label>Impuestos a Pagar:</label>
-            <input type="text" name="impuestos" id="impuestos" class="form-control" readonly>
+            <input type="text" name="impuestos" id="impuestos" class="form-control">
         </div>
 
     
         <div class="col-md-3">
             <label>Total:</label>
-            <input type="text" name="total" id="total" class="form-control" readonly>
+            <input type="text" name="total" id="total" class="form-control">
         </div>
 
 
