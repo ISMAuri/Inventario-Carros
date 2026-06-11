@@ -18,7 +18,7 @@ if (!isset($_SESSION['nombre']) || empty($_SESSION['nombre'])) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Registro de Clientes</h1>
+            <h1 class="m-0"><b>Registro de Clientes</b></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -75,7 +75,7 @@ if ($_SESSION['crearcl']==1)
             </div>
             <!-- /.card -->
   <div class="panel-body p-4" id="formularioregistro" style="background: white;" >
-      <h3>Registrar un Cliente</h3>
+      <h3><b>Registrar un Cliente</b></h3>
       <br>
      <form id="formulario" method="POST">
     <input type="hidden" id="idcliente"  name="idcliente">

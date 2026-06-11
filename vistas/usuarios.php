@@ -17,7 +17,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Registro de Usuarios</h1>
+            <h1 class="m-0"><b>Control de Usuarios</b></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -67,7 +67,7 @@
             </div>
             <!-- /.card -->
   <div class="panel-body p-4" id="formularioregistro" style="background: white;" >
-      <h3>CREAR REGISTRO DE USUARIOS</h3>
+      <h3><b>Registrar un Usuario</b></h3>
      <form id="formulario" method="POST"  enctype="multipart/form-data">
         <input type="hidden" id="idcategoria"  name="idcategoria">   
 

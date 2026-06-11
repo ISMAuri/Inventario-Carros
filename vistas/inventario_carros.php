@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Inventario de Carros</h1>
+            <h1 class="m-0"><b>Inventario de Carros</b></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -77,7 +77,7 @@
             </div>
             <!-- /.card -->
   <div class="panel-body pt-4 pl-5 pr-5" id="formularioregistro"  style="background: white;" >
-      <h3>Registrar un Carro</h3>
+      <h3><b>Registrar un Carro</b></h3>
       <br><br>
      <form id="formulario" method="POST">
     <input type="hidden" id="idcarro"  name="idcarro">
