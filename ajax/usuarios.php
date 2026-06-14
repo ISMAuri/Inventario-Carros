@@ -16,6 +16,11 @@ $imagen       = isset($_POST['imagen']) ? limpiarCadena($_POST['imagen']) : "";
 
 switch ($_GET['opc']) {
 
+	case 'cerrarSesion':
+		session_destroy();
+		header("Location: ../index.php");
+		break;
+
 	case 'verificar':
 		$logina = $_POST['logina'];
 		$clavea = $_POST['clavea'];

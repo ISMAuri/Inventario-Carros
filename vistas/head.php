@@ -12,7 +12,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inversiones Miramar - Dashboard</title>
+  <title>Inversiones Mercantiles Villegas</title>
 
   <link rel="icon" href="../files/otros/carro.png">
   <!-- Google Font: Source Sans Pro -->
@@ -172,14 +172,19 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li> -->
-      <li class="nav-item">
+      <li class="nav-item mr-2">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item mr-2">
         <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="cerrarSesion()" role="button">
+          <i class="fas fa-sign-out-alt" alt="Cerrar Sesión"></i>
         </a>
       </li>
     </ul>
@@ -191,7 +196,7 @@
     <!-- Brand Logo -->
     <a href="tablero.php" class="brand-link">
       <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Menú</span>
     </a>
 
     <!-- Sidebar -->
@@ -347,3 +352,18 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+<script>
+  function cerrarSesion() {
+    bootbox.confirm("¿Está seguro que quiere <b>cerrar la sesión</b>?", function (result) {
+      if (result) {
+        $.post(
+          "../ajax/usuarios.php?opc=cerrarSesion",
+          function (e) {
+            location.reload();
+          },
+        );
+      }
+    });
+}
+</script>
