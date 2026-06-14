@@ -105,6 +105,16 @@ switch ($_GET['opc']) {
 				'$estado','$idcarro')";
 			$resp = $categoria->insertar($sql);
 
+			if ($resp && $estado == "Pagada") {
+				$categoria->insertar("update carros set estado='Vendido' where idcarro='$idcarro'");
+			}
+			if ($resp && $estado == "Pendiente") {
+				$categoria->insertar("update carros set estado='Disponible' where idcarro='$idcarro'");
+			}
+			if ($resp && $estado == "Anulada") {
+				$categoria->insertar("update carros set estado='Disponible' where idcarro='$idcarro'");
+			}
+
 			echo $resp ? "El factura se registro correctamente " : " No se puedo realizar";
 		} else {
 			
@@ -112,7 +122,19 @@ switch ($_GET['opc']) {
 			$sql = "UPDATE `facturas` SET `fecha`='$fecha',`idcliente`='$idcliente',`subtotal`='$subtotal',`descuento`='$descuento',`impuestoporcentaje`='$impuestoporcentaje%',`impuestos`='$impuestos',`total`='$total',`metodopago`='$metodopago',`estado`='$estado',`idcarro`='$idcarro' WHERE idfactura='$idfactura'";
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
+
+			if ($resp && $estado == "Pagada") {
+				$categoria->insertar("update carros set estado='Vendido' where idcarro='$idcarro'");
+			}
+			if ($resp && $estado == "Pendiente") {
+				$categoria->insertar("update carros set estado='Disponible' where idcarro='$idcarro'");
+			}
+			if ($resp && $estado == "Anulada") {
+				$categoria->insertar("update carros set estado='Disponible' where idcarro='$idcarro'");
+			}
+			
 			echo $resp ? " El factura se edito correctamente " : " No se puedo realizar la edición";
+			
 		}
 
 

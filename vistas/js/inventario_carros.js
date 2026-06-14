@@ -25,7 +25,7 @@ function mostrarform(bandera){
 function activar(idcarro){
 
 
-bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
+bootbox.confirm("¿Está seguro de marcar el carro como disponible?", function(result){
 		if(result)
         {
         	$.post("../ajax/inventario_carros.php?opc=activar", {idcarro : idcarro}, function(e){
@@ -37,9 +37,7 @@ bootbox.confirm("¿Está Seguro de activar el cliente?", function(result){
 	
 }
 function anular(idcarro){
-
-
-bootbox.confirm("¿Está Seguro de anular el cliente?", function(result){
+bootbox.confirm("¿Está seguro de marcar el carro como en mantenimiento?", function(result){
 		if(result)
         {
         	$.post("../ajax/inventario_carros.php?opc=anular", {idcarro : idcarro}, function(e){
