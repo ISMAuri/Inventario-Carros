@@ -46,7 +46,7 @@
           </div>
 
           <div class="col-md-6 col-sm-6 col-12">
-            <a href="fotografias_carros.php">
+            <a href="fotografias.php">
             <div class="info-box shadow-sm">
               <span class="info-box-icon bg-success"><i class="fas fa-camera"></i></span>
               <div class="info-box-content">
