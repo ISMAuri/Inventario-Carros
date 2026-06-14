@@ -174,7 +174,7 @@ $pdf->setX(235);
 /////////////////////////////
 $header = array("", "");
 $data2 = array(
-	array("Descuento", $descuento),
+	// array("Descuento", $descuento),
 	array("Subtotal",$subtotal),
   array("Total Exento", $totalexento),
   array("Impuesto 18%", $impuesto18),
