@@ -102,25 +102,25 @@ if ($_SESSION['crearcl']==1)
 
         <div class="col-md-3">
             <label>Tipo de Cliente:</label>
-            <select name="tipocliente" id="tipocliente" class="form-control">
+            <select name="tipocliente" id="tipocliente" class="form-control" readonly>
                 <option value="Natural">Natural</option>
                 <option value="Juridica">Jurídica</option>
             </select>
         </div>
         <div class="col-md-3">
             <label>RTN:</label>
-            <input type="text" name="rtn" id="rtn" class="form-control">
+            <input type="text" name="rtn" id="rtn" class="form-control" readonly>
         </div>
 
         <div class="col-md-3">
             <label>Nombre Completo / Razón Social:</label>
-            <input type="text" name="nombre" id="nombre" class="form-control">
+            <input type="text" name="nombre" id="nombre" class="form-control" readonly>
         </div>
 
 
         <div class="col-md-3">
             <label>Teléfono:</label>
-            <input type="text" name="telefono" id="telefono" class="form-control">
+            <input type="text" name="telefono" id="telefono" class="form-control" readonly>
         </div>
 
     </div>
@@ -131,18 +131,18 @@ if ($_SESSION['crearcl']==1)
 
         <div class="col-md-4">
             <label>Correo Electrónico:</label>
-            <input type="email" name="correoelectronico" id="correoelectronico" class="form-control">
+            <input type="email" name="correoelectronico" id="correoelectronico" class="form-control" readonly>
         </div>
 
         
         <div class="col-md-5">
             <label>Dirección:</label>
-            <textarea name="direccion" id="direccion" class="form-control"></textarea>
+            <textarea name="direccion" id="direccion" class="form-control" readonly></textarea>
         </div>
 
         <div class="col-md-3">
             <label>Estado:</label>
-            <select name="estado" id="estado" class="form-control">
+            <select name="estado" id="estado" class="form-control" readonly>
                 <option value="Activo" selected>Activo</option>
                 <option value="Inactivo">Inactivo</option>
             </select>

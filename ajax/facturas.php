@@ -120,7 +120,7 @@ switch ($_GET['opc']) {
 
 	case 'datosFactura':
 		$resp = $categoria->listar("select * from clientes where estado='Activo'");
-		$datos = "<option value='0'>Cliente Nuevo</option>";
+		$datos = "";
 		while ($fila = $resp->fetch_object()) {
 
 			$datos .= "<option value='$fila->idcliente'>$fila->rtn - $fila->nombre</option>";

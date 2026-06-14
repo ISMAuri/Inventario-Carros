@@ -5,6 +5,7 @@ function init() {
   limpiar();
   obtenerDatosFactura();
   obtenerDatosCarro();
+  mostrarCliente();
 }
 function mostrarform(bandera) {
   if (bandera) {
@@ -13,6 +14,7 @@ function mostrarform(bandera) {
     mostrarCarro();
     obtenerDatosFactura();
     obtenerDatosCarro();
+    mostrarCliente();
   } else {
     $("#listadoregistros").show();
     $("#formularioregistro").hide();
@@ -176,13 +178,13 @@ function mostrarCliente() {
     }
     if (idcliente == 0) {
       $('.datos-cliente div select, .datos-cliente div input, .datos-cliente div textarea').prop('readonly', false);
-            $("#nombre").val("");
-            $("#tipocliente").val("");
-            $("#rtn").val("");
-            $("#telefono").val("");
-            $("#correoelectronico").val("");
-            $("#direccion").val("");
-            $("#estado").val("Activo");
+          $("#nombre").val("");
+          $("#tipocliente").val("");
+          $("#rtn").val("");
+          $("#telefono").val("");
+          $("#correoelectronico").val("");
+          $("#direccion").val("");
+          $("#estado").val("Activo");
       
 
     }
