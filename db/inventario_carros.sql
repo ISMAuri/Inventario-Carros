@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2026 a las 22:44:56
+-- Tiempo de generación: 15-06-2026 a las 01:30:43
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,23 +48,6 @@ CREATE TABLE `carros` (
   `fechacreacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `fechaactualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `carros`
---
-
-INSERT INTO `carros` (`idcarro`, `vin`, `marca`, `modelo`, `anio`, `color`, `placa`, `kilometraje`, `tipocombustible`, `transmision`, `tipocarroceria`, `preciocompra`, `precioventa`, `gastosextra`, `fechaingreso`, `estado`, `observaciones`, `fechacreacion`, `fechaactualizacion`) VALUES
-(1, '1234214', 'Toyota', 'Corolla', 2011, 'rojo', 'HAZ2021', 12000, 'Diesel', 'Manual', 'Hatchback', 100000.00, 200000.00, 0.00, '2026-06-01', 'Disponible', 'No tiene defectos', '2026-06-07 21:37:24', '2026-06-11 22:31:34'),
-(2, '3214214214', 'jsdflksajfd', 'jslkdfjs', 2000, 'jsadfljsalkfd', 'jsalkjsadlkf', 200, 'Diesel', 'Manual', 'Hatchback', 299.00, 3000.00, 0.00, '2026-06-01', 'Disponible', 'sadff', '2026-06-07 21:37:24', '2026-06-14 20:25:28'),
-(3, '939452345', 'jsaflkjsaf', 'sajdflkjsaf', 1999, 'ajslkfjsaf', 'ajsdkfajsdf', 9959325, 'Gasolina', 'Automatica', 'Sedan', 2999.00, 4000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:09:13', '2026-06-08 15:09:13'),
-(4, '93945124', 'jsaflkjsaf', 'sajdflkjsaf', 1999, 'ajslkfjsaf', 'ajsdkfajsdf', 9959325, 'Gasolina', 'Automatica', 'Sedan', 2999.00, 4000.00, 0.00, '2000-12-12', 'Mantenimiento', 'jsalkfjsflkjsafd', '2026-06-08 15:09:43', '2026-06-11 21:51:38'),
-(5, '124921943212', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', 'sajdflksjf', '2026-06-08 15:28:56', '2026-06-08 15:28:56'),
-(7, '124921943212123', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:29:44', '2026-06-08 15:29:44'),
-(9, '1249219432', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:30:22', '2026-06-08 15:30:22'),
-(10, '124921943', 'jflksaf', 'jsadlkfjsafda', 2000, 'jsalkfjsf', 'jaslkfdj', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', 'jcalksdfjaf', '2026-06-11 15:00:29', '2026-06-11 15:00:29'),
-(11, '1000', 'jsadlkfjsa', 'jdsalkfjsadf', 1000, 'dsjflkdsj', 'jaslkdfjfds', 1000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 1550.00, 0.00, '1000-12-12', 'Disponible', 'samdsjflk', '2026-06-11 15:09:17', '2026-06-11 15:09:17'),
-(12, '10000', 'jsadlkfjsa', 'jdsalkfjsadf', 1000, 'dsjflkdsj', 'jaslkdfjfds', 1000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 1550.00, 0.00, '1000-12-12', 'Disponible', '', '2026-06-11 15:16:49', '2026-06-11 21:51:45'),
-(14, '124921943290', 'Hyundai', 'Elantra', 2014, 'Gris', 'ZSA2021', 1000, 'Hibrido', 'CVT', 'Sedan', 120000.00, 250000.00, 200.00, '2022-02-03', 'Mantenimiento', '', '2026-06-11 21:37:06', '2026-06-11 21:52:59');
 
 -- --------------------------------------------------------
 
@@ -145,20 +128,6 @@ CREATE TABLE `facturas` (
   `idcarro` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `facturas`
---
-
-INSERT INTO `facturas` (`idfactura`, `numerofactura`, `fecha`, `idcliente`, `idusuario`, `descuento`, `subtotal`, `impuestoporcentaje`, `impuestos`, `total`, `metodopago`, `estado`, `idcarro`) VALUES
-(1, 'F-001', '2026-06-09 00:12:55', 1, 4, 2.00, 200.00, '15%', 200.00, 800.00, 'Efectivo', 'Pendiente', 1),
-(7, 'F-007', '2026-06-20 00:00:00', 2, 4, 200.00, 2800.00, '15%', 420.00, 3220.00, 'Tarjeta', 'Pagada', 2),
-(8, 'F-008', '2026-06-11 00:00:00', 2, 4, 0.00, 0.00, '0%', 0.00, 0.00, 'Transferencia', 'Pagada', 9),
-(9, 'F-009', '2026-06-11 00:00:00', 1, 4, 0.00, 200000.00, '0%', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 3),
-(10, 'F-0010', '2026-06-11 00:00:00', 1, 4, 0.00, 200000.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Anulada', 1),
-(13, 'F-0011', '2026-06-11 00:00:00', 1, 4, 0.00, 200000.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 1),
-(14, 'F-0014', '2026-06-14 00:00:00', 1, 4, 0.00, 2000.00, '15%', 300.00, 2300.00, 'Efectivo', 'Pendiente', 5),
-(15, 'F-0015', '2026-06-14 21:59:00', 2, 4, 400.00, 1150.00, '15%', 172.50, 1322.50, 'Efectivo', 'Anulada', 12);
-
 -- --------------------------------------------------------
 
 --
@@ -170,21 +139,6 @@ CREATE TABLE `fotos_carro` (
   `idcarro` int(11) DEFAULT NULL,
   `ruta` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `fotos_carro`
---
-
-INSERT INTO `fotos_carro` (`idfoto`, `idcarro`, `ruta`) VALUES
-(1, 9, '1780932623_0.png'),
-(2, 9, '1780932623_1.png'),
-(3, 9, '1780932623_2.png'),
-(4, 11, '1781190557_0.png'),
-(5, 11, '1781190557_1.png'),
-(6, 11, '1781190557_2.png'),
-(9, 12, '1781191163_0.png'),
-(10, 14, '1781213826_0.png'),
-(11, 14, '1781213826_1.png');
 
 -- --------------------------------------------------------
 
@@ -307,11 +261,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `login`, `clave`, `cargo`, `imagen`, `condicion`) VALUES
-(1, 'Ismael', 'sdjfskfjasdlk', 'jlkjlkfajsA1f', 'jsfdlkjdsaf', '', 0),
-(4, 'hola', 'hola', 'hola', 'Administrador', '1780926751.png', 1),
-(5, 'admin', 'admin', 'admin', 'admin', '', 0),
-(12, 'TODO1', 'TODO1', 'TODO1...', 'ADMIN1', '1780669900.png', 1),
-(13, 'Ismaeljj', 'jose', 'jsdlkfsajflkA1', 'safdsafdsafa', '1780934573.png', 1);
+(1, 'admin', 'admin', 'admin', 'Administrador', 'admin.png', 1);
 
 -- --------------------------------------------------------
 
@@ -324,39 +274,40 @@ CREATE TABLE `usuario_permiso` (
   `idpermiso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `usuario_permiso`
+-- Estructura de tabla para la tabla `usuario_permisos`
 --
 
-INSERT INTO `usuario_permiso` (`idusuario`, `idpermiso`) VALUES
-(4, 1),
-(4, 2),
-(4, 3),
-(4, 6),
-(4, 7),
-(4, 8),
-(4, 9),
-(4, 10),
-(4, 11),
-(4, 12),
-(5, 1),
-(5, 2),
-(5, 3),
-(5, 4),
-(5, 5),
-(12, 1),
-(12, 2),
-(12, 3),
-(12, 6),
-(12, 7),
-(12, 8),
-(12, 9),
-(13, 1),
-(13, 2),
-(13, 5),
-(13, 9),
-(13, 11),
-(13, 12);
+CREATE TABLE `usuario_permisos` (
+  `idusuario` int(11) NOT NULL,
+  `idpermiso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario_permisos`
+--
+
+INSERT INTO `usuario_permisos` (`idusuario`, `idpermiso`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
+(1, 14),
+(1, 15),
+(1, 16),
+(1, 17),
+(1, 18);
 
 --
 -- Índices para tablas volcadas
@@ -434,6 +385,13 @@ ALTER TABLE `usuario_permiso`
   ADD KEY `fk_permiso` (`idpermiso`);
 
 --
+-- Indices de la tabla `usuario_permisos`
+--
+ALTER TABLE `usuario_permisos`
+  ADD PRIMARY KEY (`idusuario`,`idpermiso`),
+  ADD KEY `fk_usuario_permisos_permiso` (`idpermiso`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -441,7 +399,7 @@ ALTER TABLE `usuario_permiso`
 -- AUTO_INCREMENT de la tabla `carros`
 --
 ALTER TABLE `carros`
-  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -459,13 +417,13 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos_carro`
 --
 ALTER TABLE `fotos_carro`
-  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
@@ -489,7 +447,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -515,6 +473,13 @@ ALTER TABLE `fotos_carro`
 ALTER TABLE `usuario_permiso`
   ADD CONSTRAINT `fk_permiso` FOREIGN KEY (`idpermiso`) REFERENCES `permiso` (`idpermiso`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `usuario_permisos`
+--
+ALTER TABLE `usuario_permisos`
+  ADD CONSTRAINT `fk_usuario_permisos_permiso` FOREIGN KEY (`idpermiso`) REFERENCES `permisos` (`idpermiso`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_usuario_permisos_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
