@@ -38,36 +38,27 @@ switch ($_GET['opc']) {
 
 				$_SESSION['imagen'] = "icono-blanco.png";
 			}
-			$sqlPermisos = "SELECT idpermiso FROM usuario_permisos WHERE idusuario='" . $fetch['idusuario'] . "'";
+			$sqlPermisos = "SELECT idpermiso FROM usuario_permiso WHERE idusuario='" . $fetch['idusuario'] . "'";
 			$marcados = $categoria->listar($sqlPermisos);
 			$valores = array();
 			while ($per = $marcados->fetch_object()) {
 				array_push($valores, $per->idpermiso);
 			}
-			in_array(1, $valores) ? $_SESSION['verdashboard'] = 1 : $_SESSION['verdashboard'] = 0;
-
-			in_array(2, $valores) ? $_SESSION['verinventario'] = 1 : $_SESSION['verinventario'] = 0;
-			in_array(3, $valores) ? $_SESSION['crearinventario'] = 1 : $_SESSION['crearinventario'] = 0;
-			in_array(4, $valores) ? $_SESSION['editarinventario'] = 1 : $_SESSION['editarinventario'] = 0;
-			in_array(5, $valores) ? $_SESSION['cambiarestadoinventario'] = 1 : $_SESSION['cambiarestadoinventario'] = 0;
-
-			in_array(6, $valores) ? $_SESSION['verfotografias'] = 1 : $_SESSION['verfotografias'] = 0;
-
-			in_array(7, $valores) ? $_SESSION['verclientes'] = 1 : $_SESSION['verclientes'] = 0;
-			in_array(8, $valores) ? $_SESSION['crearclientes'] = 1 : $_SESSION['crearclientes'] = 0;
-			in_array(9, $valores) ? $_SESSION['editarclientes'] = 1 : $_SESSION['editarclientes'] = 0;
-			in_array(10, $valores) ? $_SESSION['cambiarestadoclientes'] = 1 : $_SESSION['cambiarestadoclientes'] = 0;
-
-			in_array(11, $valores) ? $_SESSION['verfacturas'] = 1 : $_SESSION['verfacturas'] = 0;
-			in_array(12, $valores) ? $_SESSION['crearfacturas'] = 1 : $_SESSION['crearfacturas'] = 0;
-			in_array(13, $valores) ? $_SESSION['editarfacturas'] = 1 : $_SESSION['editarfacturas'] = 0;
-			in_array(14, $valores) ? $_SESSION['cambiarestadofacturas'] = 1 : $_SESSION['cambiarestadofacturas'] = 0;
-
-			in_array(15, $valores) ? $_SESSION['verusuarios'] = 1 : $_SESSION['verusuarios'] = 0;
-			in_array(16, $valores) ? $_SESSION['crearusuarios'] = 1 : $_SESSION['crearusuarios'] = 0;
-			in_array(17, $valores) ? $_SESSION['editarusuarios'] = 1 : $_SESSION['editarusuarios'] = 0;
-			in_array(18, $valores) ? $_SESSION['cambiarestadousuarios'] = 1 : $_SESSION['cambiarestadousuarios'] = 0;
+			in_array(1, $valores) ? $_SESSION['crearcl'] = 1 : $_SESSION['crearcl'] = 0;
+			in_array(2, $valores) ? $_SESSION['editarcl'] = 1 : $_SESSION['editarcl'] = 0;
+			in_array(3, $valores) ? $_SESSION['anularcl'] = 1 : $_SESSION['anularcl'] = 0;
+			in_array(4, $valores) ? $_SESSION['controlusuario'] = 1 : $_SESSION['controlusuario'] = 0;
+			in_array(5, $valores) ? $_SESSION['detalleusuario'] = 1 : $_SESSION['detalleusuario'] = 0;
+			in_array(6, $valores) ? $_SESSION['crearusuario'] = 1 : $_SESSION['crearusuario'] = 0;
+			in_array(7, $valores) ? $_SESSION['editarusuario'] = 1 : $_SESSION['editarusuario'] = 0;
+			in_array(8, $valores) ? $_SESSION['anularusuario'] = 1 : $_SESSION['anularusuario'] = 0;
+			in_array(9, $valores) ? $_SESSION['escritorio'] = 1 : $_SESSION['escritorio'] = 0;
+			in_array(10, $valores) ? $_SESSION['crearempresa'] = 1 : $_SESSION['crearempresa'] = 0;
+			in_array(11, $valores) ? $_SESSION['editarempresa'] = 1 : $_SESSION['editarempresa'] = 0;
+			in_array(12, $valores) ? $_SESSION['anularempresa'] = 1 : $_SESSION['anularempresa'] = 0;
 			//in_array(5,$valores)?$_SESSION['acceso']=1:$_SESSION['acceso']=0;
+
+
 		}
 
 		echo json_encode($_SESSION['cargo']);
