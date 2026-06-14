@@ -89,12 +89,12 @@ switch ($_GET['opc']) {
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
 
-			echo $resp ? "El cliente se registro correctante " : " No se puedo realizar";
+			echo $resp ? "El cliente se registro correctamente " : " No se puedo realizar";
 		} else {
 			$sql = "UPDATE `clientes` SET `tipocliente`='$tipocliente',`rtn`='$rtn',`nombre`='$nombre',`telefono`='$telefono',`correoelectronico`='$correoelectronico',`direccion`='$direccion',`estado`='$estado' WHERE idcliente='$idcliente'";
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
-			echo $resp ? " El cliente se edito correctante " : " No se puedo realizar la edición";
+			echo $resp ? " El cliente se edito correctamente " : " No se puedo realizar la edición";
 		}
 
 

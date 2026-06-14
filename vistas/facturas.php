@@ -43,12 +43,12 @@ if ($_SESSION['crearcl']==1)
                   <thead>
                   <tr>
                     <th>Opciones</th>
-                        <th>No. Factura</th>
+                        <th>No.</th>
                         <th>Fecha</th>
                         <th>Nombre Cliente</th>
-                        <th>Nombre Usuario</th>
+                        <th>Carro</th>
                         <th>Subtotal</th>
-                        <th>Descuento</th>
+                        <!-- <th>Descuento</th> -->
                         <th>Impuestos</th>
                         <th>Total</th>
                         <th>Método de Pago</th>
@@ -66,7 +66,7 @@ if ($_SESSION['crearcl']==1)
                         <th>Nombre Cliente</th>
                         <th>Nombre Usuario</th>
                         <th>Subtotal</th>
-                        <th>Descuento</th>
+                        <!-- <th>Descuento</th> -->
                         <th>Impuestos</th>
                         <th>Total</th>
                         <th>Método de Pago</th>
@@ -81,7 +81,9 @@ if ($_SESSION['crearcl']==1)
   <div class="panel-body p-4" id="formularioregistro" style="background: white;" >
       <h3><b>Crear Factura</b></h3>
       <br>
+      
      <form id="formulario" method="POST">
+        <input type="hidden" id="idfactura"  name="idfactura">
         <input type="hidden" id="idcliente"  name="idcliente">
         <input type="hidden" id="idcarro" name="idcarro">
 
@@ -142,7 +144,7 @@ if ($_SESSION['crearcl']==1)
 
         <div class="col-md-3">
             <label>Estado:</label>
-            <select name="estado" id="estado" class="form-control" readonly>
+            <select name="estadocliente" id="estadocliente" class="form-control" readonly>
                 <option value="Activo" selected>Activo</option>
                 <option value="Inactivo">Inactivo</option>
             </select>
@@ -206,7 +208,7 @@ if ($_SESSION['crearcl']==1)
 
         <div class="col-md-3">
             <label>Fecha:</label>
-            <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo date('Y-m-d');?>">
+            <input type="datetime-local" name="fecha" id="fecha" class="form-control" value="<?php echo date('Y-m-d\TH:i');?>">
         </div>
 
         <div class="col-md-3 datos-cliente">
@@ -218,9 +220,9 @@ if ($_SESSION['crearcl']==1)
             </select>
         </div>
 
-                <div class="col-md-3">
+        <div class="col-md-3">
             <label>Estado:</label>
-            <select name="estado" id="estado" class="form-control">
+            <select name="estadofactura" id="estadofactura" class="form-control">
                 <option value="Pendiente">Pendiente</option>
                 <option value="Pagada">Pagada</option>
                 <option value="Anulada">Anulada</option>

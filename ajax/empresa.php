@@ -92,7 +92,7 @@ switch ($_GET['opc']) {
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
 
-			echo $resp ? "La empresa se registro correctante " : " No se puedo realizar";
+			echo $resp ? "La empresa se registro correctamente " : " No se puedo realizar";
 		} else {
 			$sql = "UPDATE `empresa` SET `nombre`='$nombre',`razon_social`='$razon_social',`rtn`='$rtn',`direccion`='$direccion',`telefono`='$telefono',`correo`='$correo',`sitio_web`='$sitio_web',`estado`='$estado' WHERE id_empresa='$idcategoria'";
 			$categoria->insertar($sql);
@@ -104,7 +104,7 @@ switch ($_GET['opc']) {
 
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
-			echo $resp ? " La empresa se edito correctante " : " No se puedo realizar la edición";
+			echo $resp ? " La empresa se edito correctamente " : " No se puedo realizar la edición";
 		}
 
 

@@ -53,20 +53,34 @@ function anular(idfactura) {
   });
 }
 function mostrar(idfactura) {
+  
+  mostrarform(true);
   $.post(
     "../ajax/facturas.php?opc=mostrar",
     { idfactura: idfactura },
     function (data, status) {
+
       data = JSON.parse(data);
-      $("#idfactura").val(data.id);
-      $("#nombre").val(data.nombre);
-      $("#apellido").val(data.apellido);
-      $("#rtn").val(data.rtn);
-      $("#telefono").val(data.telefono);
-      $("#correoelectronico").val(data.correoelectronico);
-      $("#tipofactura").val(data.tipofactura);
-      //$("#tipofactura").val(data.tipofactura).trigger('change');
-		mostrarform(true);
+
+      $("#idfactura").val(data.idfactura);
+      $("#idcarro").val(data.idcarro);
+      $("#idcliente").val(data.idcliente);
+      $("#cliente").val(data.idcliente).trigger('change');
+      
+      console.log("ID del carro en mostrar():", data.idcarro);
+      
+      $("#carro").val(data.idcarro).trigger('change');
+      console.log("ID del carro después de setear el valor:", $("#carro").val());
+
+      descuento = parseFloat(data.descuento);
+      $("#descuento").val(descuento);
+      let imp = data.impuestoporcentaje.trim().replace('%', '');
+      $("#impuestoporcentaje").val(imp);
+
+      $("#fecha").val(data.fecha);
+      $("#metodopago").val(data.metodopago);
+      $("#estadofactura").val(data.estado);
+		
     },
   );
 }
@@ -79,7 +93,7 @@ function limpiar() {
   $("#correoelectronico").val("");
   $("#tipofactura").val("");
   //$("#tipofactura").val(data.tipofactura).trigger('change');
-  $("#estado").val("");
+  // $("#estadofactura").val("");
 }
 function guardarRegistro() {
   var formData = new FormData($("#formulario")[0]);
@@ -172,7 +186,7 @@ function mostrarCliente() {
             $("#telefono").val(data.telefono);
             $("#correoelectronico").val(data.correoelectronico);
             $("#direccion").val(data.direccion);
-            $("#estado").val(data.estado);
+            $("#estadocliente").val(data.estado);
           },);
 
 
@@ -185,7 +199,7 @@ function mostrarCliente() {
           $("#telefono").val("");
           $("#correoelectronico").val("");
           $("#direccion").val("");
-          $("#estado").val("Activo");
+          $("#estadocliente").val("Pendiente");
       
 
     }

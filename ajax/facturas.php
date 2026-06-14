@@ -5,7 +5,7 @@ $categoria = new ejecutarSQL();
 
 $idfactura = isset($_POST['idfactura']) ? limpiarCadena($_POST['idfactura']) : "";
 
-$estado    = isset($_POST['estado']) ? limpiarCadena($_POST['estado']) : "";
+$estado    = isset($_POST['estadofactura']) ? limpiarCadena($_POST['estadofactura']) : "";
 $idcliente    = isset($_POST['idcliente']) ? limpiarCadena($_POST['idcliente']) : "";
 $idcarro    = isset($_POST['idcarro']) ? limpiarCadena($_POST['idcarro']) : "";
 $fecha	= isset($_POST['fecha']) ? limpiarCadena($_POST['fecha']) : "";
@@ -45,6 +45,7 @@ switch ($_GET['opc']) {
 
 			$nombre = $categoria->mostrar("select nombre from clientes where idcliente='" . $fila->idcliente . "'");
 			$usuario = $categoria->mostrar("select nombre from usuario where idusuario='" . $fila->idusuario . "'");
+			$carro = $categoria->mostrar("select * from carros where idcarro='" . $fila->idcarro . "'");
 
 			$bg='red';
 			if ($fila->estado == "Pendiente") $bg = 'yellow';
@@ -53,13 +54,14 @@ switch ($_GET['opc']) {
 				"1" => $fila->numerofactura,
 				"2" => $fila->fecha,
 				"3" => $nombre['nombre'],
-				"4" => $usuario['nombre'],
+				// "4" => $usuario['nombre'],
+				"4" => $carro['marca'] . " " . $carro['modelo'] . " (" . $carro['placa'] . ")",
 				"5" => $fila->subtotal,
-				"6" => $fila->descuento,
-				"7" => $fila->impuestos,
-				"8" => $fila->total,
-				"9" => $fila->metodopago,
-				"10" => ($condicion) ? '<span class="label bg-green">' . $fila->estado . '</span>'
+				// "6" => $fila->descuento,
+				"6" => $fila->impuestos,
+				"7" => $fila->total,
+				"8" => $fila->metodopago,
+				"9" => ($condicion) ? '<span class="label bg-green">' . $fila->estado . '</span>'
 					: '<span class="label bg-' . $bg . '">' . $fila->estado . '</span>'
 			);
 		}
@@ -92,6 +94,7 @@ switch ($_GET['opc']) {
 
 
 			$ultimoid = $categoria->mostrar("SELECT MAX(idfactura) as id FROM facturas");
+
 			$id = $ultimoid['id'] + 1;
 			$idcarro = isset($_POST['carro']) ? limpiarCadena($_POST['carro']) : "";
 			$idusuario = $_SESSION['idusuario'];
@@ -102,12 +105,14 @@ switch ($_GET['opc']) {
 				'$estado','$idcarro')";
 			$resp = $categoria->insertar($sql);
 
-			echo $resp ? "El factura se registro correctante " : " No se puedo realizar";
+			echo $resp ? "El factura se registro correctamente " : " No se puedo realizar";
 		} else {
-			$sql = "UPDATE `facturas` SET `fecha`='$fecha',`subtotal`='$subtotal',`descuento`='$descuento',`impuestoporcentaje`='$impuestoporcentaje',`impuestos`='$impuestos',`total`='$total',`metodopago`='$metodopago',`idcarro`='$idcarro' WHERE idfactura='$idfactura'";
+			
+
+			$sql = "UPDATE `facturas` SET `fecha`='$fecha',`idcliente`='$idcliente',`subtotal`='$subtotal',`descuento`='$descuento',`impuestoporcentaje`='$impuestoporcentaje%',`impuestos`='$impuestos',`total`='$total',`metodopago`='$metodopago',`estado`='$estado',`idcarro`='$idcarro' WHERE idfactura='$idfactura'";
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
-			echo $resp ? " El factura se edito correctante " : " No se puedo realizar la edición";
+			echo $resp ? " El factura se edito correctamente " : " No se puedo realizar la edición";
 		}
 
 

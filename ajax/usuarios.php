@@ -185,7 +185,7 @@ switch ($_GET['opc']) {
 			}
 
 
-			echo $resp ? "El usuario se registro correctante " : " No se puedo realizar";
+			echo $resp ? "El usuario se registro correctamente " : " No se puedo realizar";
 		} else {
 			$sql = "UPDATE usuario SET nombre='$nombre', login='$login', clave='$clave', cargo='$cargo' WHERE idusuario='$idcategoria'";
 			$categoria->insertar($sql);

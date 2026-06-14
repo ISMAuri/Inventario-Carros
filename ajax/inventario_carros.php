@@ -128,7 +128,7 @@ switch ($_GET['opc']) {
 			}
 
 
-			echo $resp ? "El carro se registro correctante " : " No se puedo realizar";
+			echo $resp ? "El carro se registro correctamente " : " No se puedo realizar";
 		} else {
 
 
@@ -147,7 +147,7 @@ switch ($_GET['opc']) {
 			
 			// var_dump($fotos);
 
-			echo $resp ? " El carro se edito correctante " : " No se puedo realizar la edición";
+			echo $resp ? " El carro se edito correctamente " : " No se puedo realizar la edición";
 		}
 
 
