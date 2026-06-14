@@ -12,6 +12,7 @@ require_once "../modelo/ejecutarSQL.php";
 // var_dump($idfactura);exit();
 
 $categoria = new ejecutarSQL();
+$imagen=new ejecutarSQL();
 // $carro = $categoria->mostrar("select * from carro where idcarro='" . $factura['idcarro'] . "'");
 // var_dump($fecha);exit();
 
@@ -79,10 +80,34 @@ $pdf->AddPage();
     $pdf->Cell(170, 6, utf8_decode('Observaciones: '.$reg->observaciones), 1);
     $pdf->Ln();
 
+    //Seccion de fotos
+    $pdf->Ln(10);
 
-$pdf->output();
+    $pdf->SetFont('Arial', 'B', 12);
+    $pdf->Cell(5, 6, '', 0, 0, 'C');
+    $pdf->Cell(170, 6, 'FOTOGRAFIAS DEL VEHICULO', 1, 0, 'C');
+    $pdf->Ln(6);
+    $rspta2 = $imagen->listar("SELECT * FROM fotos_carro WHERE idcarro='$idcarro'");
+    $x = 18;
+    $y = $pdf->GetY() + 5;
+    $contador = 0;
+
+    while($reg2 = $rspta2->fetch_object()){
+
+        $ruta = "../files/carros/".$reg2->ruta;
+        if(file_exists($ruta)){
+            $pdf->Image($ruta,$x,$y,45,40);
+            $contador++;
+            $x += 60;
+            if($contador % 3 == 0){
+                $x = 18;
+                $y += 50;
+            }
+        }
+    }
+    
+
+    $pdf->output();
   
-
-
 }
 
