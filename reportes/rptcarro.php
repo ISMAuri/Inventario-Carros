@@ -95,6 +95,7 @@ $pdf->AddPage();
     while($reg2 = $rspta2->fetch_object()){
 
         $ruta = "../files/carros/".$reg2->ruta;
+
         if(file_exists($ruta)){
             $pdf->Image($ruta,$x,$y,45,40);
             $contador++;
@@ -104,6 +105,13 @@ $pdf->AddPage();
                 $y += 50;
             }
         }
+    }
+    if ($contador == 0) {
+        $pdf->SetFont('Arial', 'I', 10);
+        $pdf->Ln();
+        $pdf->Cell(5, 6, '', 0);
+        $pdf->Cell(170, 6, utf8_decode('No hay fotos disponibles para este vehículo'), 0, 0, 'C');
+        $pdf->Ln();
     }
     
 
