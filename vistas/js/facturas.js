@@ -1,3 +1,4 @@
+$.fn.dataTable.ext.errMode = 'none';
 var tabla;
 function init() {
   mostrarform(false);
