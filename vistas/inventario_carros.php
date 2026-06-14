@@ -34,8 +34,10 @@
     </div>
               <div class="card-header">
                 
+        <?php if ($_SESSION['crearinventario'] == 1) { ?>
         <button type="button" class="btn btn-primary" onclick="mostrarform(true)">
           <i class="fa fa-plus" style='margin-right: 3px;' aria-hidden="true"></i>Agregar Carro</button>
+        <?php } ?>
           
               <br>
               

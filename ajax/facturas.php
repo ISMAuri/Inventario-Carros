@@ -26,19 +26,24 @@ switch ($_GET['opc']) {
 			$condicion = 0;
 			if ($fila->estado == "Pagada")
 				$condicion = 1;
-			$btnr = "<a class='btn btn-secondary' href='../reportes/rptfactura.php?idfactura=" . $fila->idfactura . "' target='_blank'><i class='fas fa-file-alt' data-toggle='modal' data-target='#exampleModal'></i></a>";
+			$btnr = '';
 			$btneditar = "";
-			$btnanular = "";
-			if ($_SESSION['editarcl'] == 1) {
+			$btnestado = "";
+			if ($_SESSION['verfacturas'] == 1) {
+
+				$btnr = "<a class='btn btn-secondary' href='../reportes/rptfactura.php?idfactura=" . $fila->idfactura . "' target='_blank'><i class='fas fa-file-alt' data-toggle='modal' data-target='#exampleModal'></i></a>";
+			}
+
+			if ($_SESSION['editarfacturas'] == 1) {
 
 				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idfactura . ')" class="btn btn-primary mr-1" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
 			if ($condicion == 1) {
-			if ($_SESSION['anularcl'] == 1) {
+			if ($_SESSION['cambiarestadofacturas'] == 1) {
 				$btnestado = '<button type="button" onclick="anular(' . $fila->idfactura . ')" class="btn btn-danger mr-1" ><i class="fas fa-eraser"></i></button>';
 			}
 			} else {
-				if ($_SESSION['anularcl'] == 1) {
+				if ($_SESSION['cambiarestadofacturas'] == 1) {
 					$btnestado = '<button type="button" onclick="activar(' . $fila->idfactura . ')" class="btn btn-success mr-1" ><i class="fas fa-check"></i></button>';
 				}
 			}

@@ -1,7 +1,12 @@
 <?php
 
     require_once "head.php";
+    if (!isset($_SESSION['nombre']) || empty($_SESSION['nombre'])) {
+    header("Location: login.html");
+    exit();
+}
 ?>
+
 
   <div class="content-wrapper">
 

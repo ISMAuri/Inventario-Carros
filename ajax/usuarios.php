@@ -84,7 +84,7 @@ switch ($_GET['opc']) {
 	// 	break;
 	case 'permisos':
 
-		$resp = $categoria->listar("SELECT * FROM permiso");
+		$resp = $categoria->listar("SELECT * FROM permisos");
 
 		echo '<div class="row">';
 		while ($fila = $resp->fetch_object()) {
@@ -107,16 +107,17 @@ switch ($_GET['opc']) {
 			$condicion = $fila->condicion;
 
 			$btneditar = "";
-			$btnanular = "";
-			if ($_SESSION['editarusuario'] == 1) {
+			$btnestado = "";
+
+			if ($_SESSION['editarusuarios'] == 1) {
 				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idusuario . ')" class="btn btn-primary" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
-			if ($_SESSION['anularusuario'] == 1) {
-				$btnanular = '<button type="button" onclick="anular(' . $fila->idusuario . ')" class="btn btn-danger" ><i class="fas fa-eraser"></i></button>';
+			if ($_SESSION['cambiarestadousuarios'] == 1) {
+				$btnestado = '<button type="button" onclick="cambiarestado(' . $fila->idusuario . ')" class="btn btn-warning" ><i class="fas fa-exclamation-triangle"></i></button>';
 			}
 
 			$data[] = array(
-				"0" => $btneditar .	$btnanular,
+				"0" => $btneditar .	$btnestado,
 				"1" => $fila->nombre,
 				"2" => $fila->login,
 				"3" => $fila->cargo,
@@ -181,6 +182,17 @@ switch ($_GET['opc']) {
 			// 	exit();
 			// }
 
+
+			// $lista = $_POST['permisos'] ?? [];
+			// for ($i = 0; $i < count($lista); $i++) {
+			// 	$sql = "insert into usuario_permisos(idusuario, idpermiso) 
+            // values((select max(idusuario) from usuario),'$lista[$i]')";
+
+			// 	echo $sql . "<br>";
+			// }
+			// var_dump($lista);
+			// exit();
+
 			$sql = "INSERT INTO `usuario`(  `nombre`, `login`, `clave`, `cargo`, `imagen` ) VALUES ( '$nombre','$login','$clave','$cargo','$imagen' )";
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
@@ -188,7 +200,7 @@ switch ($_GET['opc']) {
 			$lista = $_POST['permisos'] ?? [];
 			for ($i = 0; $i < count($lista); $i++) {
 
-				$sql = "insert into usuario_permiso(idusuario, idpermiso) values((select max(idusuario) from usuario),'$lista[$i]')";
+				$sql = "insert into usuario_permisos(idusuario, idpermiso) values((select max(idusuario) from usuario),'$lista[$i]')";
 				//echo $sql; 
 				$resp = $categoria->insertar($sql);
 			}
@@ -206,11 +218,11 @@ switch ($_GET['opc']) {
 
 
 			$lista = $_POST['permisos'] ?? [];
-			$categoria->insertar("delete from usuario_permiso where idusuario=$idcategoria");
+			$categoria->insertar("delete from usuario_permisos where idusuario=$idcategoria");
 			for ($i = 0; $i < count($lista); $i++) {
 
 
-				$sql = "insert into usuario_permiso(idusuario, idpermiso) values($idcategoria,'$lista[$i]')";
+				$sql = "insert into usuario_permisos(idusuario, idpermiso) values($idcategoria,'$lista[$i]')";
 				//echo $sql; 
 				$resp = $categoria->insertar($sql);
 			}
@@ -223,7 +235,7 @@ switch ($_GET['opc']) {
 	case 'mostrar':
 		$respx = $categoria->mostrar("SELECT * FROM usuario WHERE idusuario=$idcategoria");
 
-		$sqlPermisos = "SELECT idpermiso FROM usuario_permiso WHERE idusuario='" . $idcategoria . "'";
+		$sqlPermisos = "SELECT idpermiso FROM usuario_permisos WHERE idusuario='" . $idcategoria . "'";
 		$marcados = $categoria->listar($sqlPermisos);
 
 		$valores = [];

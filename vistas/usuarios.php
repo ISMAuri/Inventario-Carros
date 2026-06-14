@@ -30,7 +30,7 @@
     </div>
               
               <div class="card-header">
-        <?php if ($_SESSION['crearusuario'] == 1) { ?>
+        <?php if ($_SESSION['crearusuarios'] == 1) { ?>
         <button type="button" class="btn btn-primary" onclick="mostrarform(true)">
           <i class="fa fa-plus" aria-hidden="true"></i>Crear Usuario</button>
         <?php } ?>

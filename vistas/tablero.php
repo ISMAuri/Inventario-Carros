@@ -10,8 +10,9 @@
     require_once "head.php";
 ?>
 
-<?php if ($_SESSION['escritorio'] == 1) { ?>
+
   <div class="content-wrapper">
+<?php if ($_SESSION['verdashboard'] == 1) { ?>
         <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -112,7 +113,13 @@
         <br>
       </div>
     </section>
-  </div> <?php } ?>
+    <?php } else { ?>
+      <div class="alert alert-info alert-dismissible">
+        <h5><i class="icon fas fa-info"></i> Bienvenido a Inversiones Mercantiles Villegas</h5>
+        
+      </div>
+    <?php } ?>
+  </div> 
 
 <script src="../plugins/inputmask/jquery.inputmask.min.js"></script>
 <script>

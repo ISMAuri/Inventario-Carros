@@ -238,6 +238,10 @@
               </p>
             </a>
         </li>
+
+          <?php 
+          if ($_SESSION['verinventario']==1 || $_SESSION['crearinventario']==1 || $_SESSION['editarinventario']==1 || $_SESSION['cambiarestadoinventario']==1 )
+          { ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-car"></i>
@@ -248,7 +252,7 @@
             </a>
             <ul class="nav nav-treeview">
               <?PHP
-          if ($_SESSION['crearcl']==1 || $_SESSION['editarcl']==1 || $_SESSION['anularcl']==1 )
+          if ($_SESSION['verinventario']==1 || $_SESSION['crearinventario']==1 || $_SESSION['editarinventario']==1 || $_SESSION['cambiarestadoinventario']==1 )
               echo  '<li class="nav-item">
                 <a href="inventario_carros.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -258,7 +262,7 @@
               ?>
 
               <?PHP
-          if ($_SESSION['crearcl']==1 || $_SESSION['editarcl']==1 || $_SESSION['anularcl']==1 )
+          if ($_SESSION['verfotografias']==1)
               echo  '<li class="nav-item">
                 <a href="fotografias.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -269,7 +273,14 @@
 
             </ul>
           </li>
+          <?php } ?>
+
+
         <!-- segundo menu -->
+
+          <?php if ($_SESSION['verclientes']==1 || $_SESSION['crearclientes']==1 || $_SESSION['editarclientes']==1 || $_SESSION['cambiarestadoclientes']==1 ||
+                $_SESSION['verfacturas']==1 || $_SESSION['crearfacturas']==1 || $_SESSION['editarfacturas']==1 || $_SESSION['cambiarestadofacturas']==1 )
+          { ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file-invoice-dollar"></i>
@@ -282,7 +293,7 @@
             <ul class="nav nav-treeview">
           
               <?PHP
-          if ($_SESSION['crearcl']==1 || $_SESSION['editarcl']==1 || $_SESSION['anularcl']==1 )
+          if ($_SESSION['verclientes']==1 || $_SESSION['crearclientes']==1 || $_SESSION['editarclientes']==1 || $_SESSION['cambiarestadoclientes']==1 )
               echo  '<li class="nav-item">
                 <a href="clientes.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -291,7 +302,7 @@
               </li>';
               ?>
               <?PHP
-          if ($_SESSION['crearcl']==1 || $_SESSION['editarcl']==1 || $_SESSION['anularcl']==1 )
+          if ($_SESSION['verfacturas']==1 || $_SESSION['crearfacturas']==1 || $_SESSION['editarfacturas']==1 || $_SESSION['cambiarestadofacturas']==1 )
               echo  '<li class="nav-item">
                 <a href="facturas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -302,6 +313,7 @@
           
         </ul>
         </li>
+          <?php } ?>
 
 <!-- tercer menu -->
           <!-- <li class="nav-item">
@@ -314,6 +326,7 @@
         </li> -->
 
 <!-- 4to menu -->
+        <?php if ($_SESSION['crearusuarios']==1 || $_SESSION['editarusuarios']==1 || $_SESSION['cambiarestadousuarios']==1 || $_SESSION['verusuarios']==1) { ?>
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
@@ -324,16 +337,16 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-          <?php if ($_SESSION['crearusuario']==1 || $_SESSION['editarusuario']==1 || $_SESSION['anularusuario']==1 )
-          echo '<li class="nav-item">
+          
+             <li class="nav-item">
                 <a href="usuarios.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
-              </li>';            
-          ?>
+              </li>
+              
 
-          <?php if ($_SESSION['crearempresa']==1 || $_SESSION['editarempresa']==1 || $_SESSION['anularempresa']==1 )
+          <?php //if ($_SESSION['crearempresa']==1 || $_SESSION['editarempresa']==1 || $_SESSION['anularempresa']==1 )
           // echo '<li class="nav-item">
           //       <a href="empresa.php" class="nav-link">
           //         <i class="far fa-circle nav-icon"></i>
@@ -344,6 +357,7 @@
           
         </ul>
         </li>
+        <?php } ?>
 
 
 

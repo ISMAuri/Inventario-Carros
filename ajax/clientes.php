@@ -28,21 +28,21 @@ switch ($_GET['opc']) {
 			$btnestado = "";
 			$btnver = "";
 
-			if ($_SESSION['editarcl'] == 1) {
+			if ($_SESSION['editarclientes'] == 1) {
 				
 				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idcliente . ')" class="btn btn-primary mr-1" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
-			if ($_SESSION['editarcl'] == 1) {
+			if ($_SESSION['verclientes'] == 1) {
 				
 				$btnver = "<a class='btn btn-secondary' href='../reportes/rptcliente.php?idcliente=" . $fila->idcliente . "' target='_blank'><i class='fas fa-file-alt' data-toggle='modal' data-target='#exampleModal'></i></a>";
 			}
 
 			if ($condicion == 1) {
-			if ($_SESSION['anularcl'] == 1) {
+			if ($_SESSION['cambiarestadoclientes'] == 1) {
 				$btnestado = '<button type="button" onclick="anular(' . $fila->idcliente . ')" class="btn btn-danger mr-1" ><i class="fas fa-eraser"></i></button>';
 			}
 			} else {
-				if ($_SESSION['anularcl'] == 1) {
+				if ($_SESSION['cambiarestadoclientes'] == 1) {
 					$btnestado = '<button type="button" onclick="activar(' . $fila->idcliente . ')" class="btn btn-success mr-1" ><i class="fas fa-check"></i></button>';
 				}
 			}

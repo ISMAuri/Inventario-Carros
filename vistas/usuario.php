@@ -1,7 +1,7 @@
 <?php
 
     if (!isset($_SESSION['nombre']) || empty($_SESSION['nombre'])) {
-        header("Location: login-v2.html");
+        header("Location: login.html");
         exit();
     }
 

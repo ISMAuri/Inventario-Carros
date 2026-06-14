@@ -32,7 +32,7 @@ if (!isset($_SESSION['nombre']) || empty($_SESSION['nombre'])) {
               <div class="card-header">
                 
     <?PHP
-if ($_SESSION['crearcl']==1)
+if ($_SESSION['crearclientes']==1)
     echo    '<button type="button" class="btn btn-primary" onclick="mostrarform(true)">
           <i class="fa fa-plus" aria-hidden="true"></i>Añadir Cliente</button>';
     ?>

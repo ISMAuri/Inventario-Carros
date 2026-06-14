@@ -37,20 +37,25 @@ switch ($_GET['opc']) {
 				$condicion = 1;
 
 
-			$btndetalles = "<a class='btn btn-secondary' href='../reportes/rptcarro.php?idcarro=" . $fila->idcarro . "' target='_blank'><i class='fas fa-info-circle' data-toggle='modal' data-target='#exampleModal'></i></a>";
+			$btndetalles = "";
 			$btnestado = "";
 			$btneditar = "";
-			if ($_SESSION['editarcl'] == 1) {
+			if ($_SESSION['verinventario'] == 1) {
+				
+				$btndetalles = "<a class='btn btn-secondary' href='../reportes/rptcarro.php?idcarro=" . $fila->idcarro . "' target='_blank'><i class='fas fa-info-circle' data-toggle='modal' data-target='#exampleModal'></i></a>";
+			}
+
+			if ($_SESSION['editarinventario'] == 1) {
 				
 				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idcarro . ')" class="btn btn-primary mr-1" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
 
 			if ($condicion == 1) {
-			if ($_SESSION['anularcl'] == 1) {
+			if ($_SESSION['cambiarestadoinventario'] == 1) {
 				$btnestado = '<button type="button" onclick="anular(' . $fila->idcarro . ')" class="btn btn-warning mr-1" ><i class="fas fa-wrench"></i></button>';
 			}
 			} else {
-				if ($_SESSION['anularcl'] == 1) {
+				if ($_SESSION['cambiarestadoinventario'] == 1) {
 					$btnestado = '<button type="button" onclick="activar(' . $fila->idcarro . ')" class="btn btn-success mr-1" ><i class="fas fa-check"></i></button>';
 				}
 			}
