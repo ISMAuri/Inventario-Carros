@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-06-2026 a las 01:00:06
+-- Tiempo de generación: 14-06-2026 a las 22:44:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -55,7 +55,7 @@ CREATE TABLE `carros` (
 
 INSERT INTO `carros` (`idcarro`, `vin`, `marca`, `modelo`, `anio`, `color`, `placa`, `kilometraje`, `tipocombustible`, `transmision`, `tipocarroceria`, `preciocompra`, `precioventa`, `gastosextra`, `fechaingreso`, `estado`, `observaciones`, `fechacreacion`, `fechaactualizacion`) VALUES
 (1, '1234214', 'Toyota', 'Corolla', 2011, 'rojo', 'HAZ2021', 12000, 'Diesel', 'Manual', 'Hatchback', 100000.00, 200000.00, 0.00, '2026-06-01', 'Disponible', 'No tiene defectos', '2026-06-07 21:37:24', '2026-06-11 22:31:34'),
-(2, '3214214214', 'jsdflksajfd', 'jslkdfjs', 2000, 'jsadfljsalkfd', 'jsalkjsadlkf', 200, '', '', NULL, 299.00, 3000.00, 0.00, '2026-06-01', 'Vendido', 'sadff', '2026-06-07 21:37:24', '2026-06-07 21:37:24'),
+(2, '3214214214', 'jsdflksajfd', 'jslkdfjs', 2000, 'jsadfljsalkfd', 'jsalkjsadlkf', 200, 'Diesel', 'Manual', 'Hatchback', 299.00, 3000.00, 0.00, '2026-06-01', 'Disponible', 'sadff', '2026-06-07 21:37:24', '2026-06-14 20:25:28'),
 (3, '939452345', 'jsaflkjsaf', 'sajdflkjsaf', 1999, 'ajslkfjsaf', 'ajsdkfajsdf', 9959325, 'Gasolina', 'Automatica', 'Sedan', 2999.00, 4000.00, 0.00, '2000-12-12', 'Disponible', '', '2026-06-08 15:09:13', '2026-06-08 15:09:13'),
 (4, '93945124', 'jsaflkjsaf', 'sajdflkjsaf', 1999, 'ajslkfjsaf', 'ajsdkfajsdf', 9959325, 'Gasolina', 'Automatica', 'Sedan', 2999.00, 4000.00, 0.00, '2000-12-12', 'Mantenimiento', 'jsalkfjsflkjsafd', '2026-06-08 15:09:43', '2026-06-11 21:51:38'),
 (5, '124921943212', 'jsalkfjsaf', 'jdsalkf', 2000, 'jaslkfjsa', 'jsaflsajf', 2000, 'Gasolina', 'Automatica', 'Sedan', 1000.00, 2000.00, 0.00, '2000-12-12', 'Disponible', 'sajdflksjf', '2026-06-08 15:28:56', '2026-06-08 15:28:56'),
@@ -135,8 +135,8 @@ CREATE TABLE `facturas` (
   `fecha` datetime NOT NULL,
   `idcliente` int(11) DEFAULT NULL,
   `idusuario` int(11) DEFAULT NULL,
+  `descuento` decimal(10,2) DEFAULT NULL,
   `subtotal` decimal(10,2) NOT NULL,
-  `descuento` decimal(10,2) DEFAULT 0.00,
   `impuestoporcentaje` enum('0%','15%','18%') DEFAULT NULL,
   `impuestos` decimal(10,2) DEFAULT 0.00,
   `total` decimal(10,2) NOT NULL,
@@ -149,13 +149,15 @@ CREATE TABLE `facturas` (
 -- Volcado de datos para la tabla `facturas`
 --
 
-INSERT INTO `facturas` (`idfactura`, `numerofactura`, `fecha`, `idcliente`, `idusuario`, `subtotal`, `descuento`, `impuestoporcentaje`, `impuestos`, `total`, `metodopago`, `estado`, `idcarro`) VALUES
-(1, 'F-001', '2026-06-09 00:12:55', 1, 4, 200.00, 2.00, '15%', 200.00, 800.00, 'Efectivo', 'Pendiente', 1),
-(7, 'F-001', '2026-06-11 00:00:00', 1, 4, 0.00, 0.00, '', 0.00, 0.00, 'Efectivo', 'Pendiente', 2),
-(8, 'F-007', '2026-06-11 00:00:00', 1, 4, 0.00, 0.00, '0%', 0.00, 0.00, 'Efectivo', 'Pagada', 9),
-(9, 'F-009', '2026-06-11 00:00:00', 1, 4, 200000.00, 0.00, '', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 3),
-(10, 'F-0010', '2026-06-11 00:00:00', 1, 4, 200000.00, 0.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Anulada', 1),
-(13, 'F-0011', '2026-06-11 00:00:00', 1, 4, 200000.00, 0.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 1);
+INSERT INTO `facturas` (`idfactura`, `numerofactura`, `fecha`, `idcliente`, `idusuario`, `descuento`, `subtotal`, `impuestoporcentaje`, `impuestos`, `total`, `metodopago`, `estado`, `idcarro`) VALUES
+(1, 'F-001', '2026-06-09 00:12:55', 1, 4, 2.00, 200.00, '15%', 200.00, 800.00, 'Efectivo', 'Pendiente', 1),
+(7, 'F-007', '2026-06-20 00:00:00', 2, 4, 200.00, 2800.00, '15%', 420.00, 3220.00, 'Tarjeta', 'Pagada', 2),
+(8, 'F-008', '2026-06-11 00:00:00', 2, 4, 0.00, 0.00, '0%', 0.00, 0.00, 'Transferencia', 'Pagada', 9),
+(9, 'F-009', '2026-06-11 00:00:00', 1, 4, 0.00, 200000.00, '0%', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 3),
+(10, 'F-0010', '2026-06-11 00:00:00', 1, 4, 0.00, 200000.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Anulada', 1),
+(13, 'F-0011', '2026-06-11 00:00:00', 1, 4, 0.00, 200000.00, '15%', 30000.00, 230000.00, 'Efectivo', 'Pendiente', 1),
+(14, 'F-0014', '2026-06-14 00:00:00', 1, 4, 0.00, 2000.00, '15%', 300.00, 2300.00, 'Efectivo', 'Pendiente', 5),
+(15, 'F-0015', '2026-06-14 21:59:00', 2, 4, 400.00, 1150.00, '15%', 172.50, 1322.50, 'Efectivo', 'Anulada', 12);
 
 -- --------------------------------------------------------
 
@@ -457,7 +459,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos_carro`
