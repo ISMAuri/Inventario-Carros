@@ -74,13 +74,14 @@ if (!isset($_SESSION["nombre"])) {
     $pdf->SetFillColor(255, 0, 0);
 
     $pdf->SetFont('Arial', 'B', 8);
-    $pdf->Cell(30, 6, 'Nombre', 1, 0, 'C', 1);
+    $pdf->Cell(30, 6, 'Tipo Cliente', 1, 0, 'C', 1);
+    $pdf->Cell(30, 6, 'RTN', 1, 0, 'C', 1);
+    $pdf->Cell(30, 6, 'Nombre / Razón Social', 1, 0, 'C', 1);
     $pdf->Cell(30, 6, 'Telefono', 1, 0, 'C', 1);
+    $pdf->Cell(30, 6, 'Correo Electrónico', 1, 0, 'C', 1);
     $pdf->Cell(30, 6, 'Direccion', 1, 0, 'C', 1);
-    $pdf->Cell(15, 6, 'Tipo', 1, 0, 'C', 1);
-    $pdf->Cell(30, 6, 'Empresa', 1, 0, 'C', 1);
-    $pdf->Cell(28, 6, 'Vehiculo Propio', 1, 0, 'C', 1);
-    $pdf->Cell(25, 6, 'Cargo', 1, 0, 'C', 1);
+    $pdf->Cell(15, 6, 'Fecha Registro', 1, 0, 'C', 1);
+    $pdf->Cell(30, 6, 'Estado', 1, 0, 'C', 1);
 
     $pdf->Ln(10);
     //Comenzamos a crear las filas de los registros según la consulta mysql
