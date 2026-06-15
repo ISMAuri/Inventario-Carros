@@ -36,7 +36,10 @@
     <section class="content pt-3">
       <div class="container-fluid">
 
-      <div class="row">
+      <div class="row mt-2">
+          <?php 
+          if ($_SESSION['verinventario']==1 || $_SESSION['crearinventario']==1 || $_SESSION['editarinventario']==1 || $_SESSION['cambiarestadoinventario']==1 )
+          { ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -53,7 +56,10 @@
               <a href="inventario_carros.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <?php } ?>
           <!-- ./col -->
+          
+          <?php if ($_SESSION['crearusuarios']==1 || $_SESSION['editarusuarios']==1 || $_SESSION['cambiarestadousuarios']==1 || $_SESSION['verusuarios']==1) { ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
@@ -68,7 +74,14 @@
               <a href="usuarios.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <?php } ?>
+
+
           <!-- ./col -->
+
+          <?PHP
+          if ($_SESSION['verclientes']==1 || $_SESSION['crearclientes']==1 || $_SESSION['editarclientes']==1 || $_SESSION['cambiarestadoclientes']==1 )
+          { ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
@@ -85,7 +98,12 @@
               <a href="clientes.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <?php } ?>
           <!-- ./col -->
+
+          <?PHP
+          if ($_SESSION['verfacturas']==1 || $_SESSION['crearfacturas']==1 || $_SESSION['editarfacturas']==1 || $_SESSION['cambiarestadofacturas']==1 )
+          { ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
@@ -101,12 +119,18 @@
               <a href="facturas.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <?php } ?>
           <!-- ./col -->
         </div>
 
          <!--INICIO -->
-        <h5 class="mb-2"></h5>
-        <div class="row">
+        <!-- <h5 class="mb-2">Menú de Navegación</h5> -->
+
+        <div class="row mt-4 mr-1 ml-1">
+
+        <?php 
+          if ($_SESSION['verinventario']==1 || $_SESSION['crearinventario']==1 || $_SESSION['editarinventario']==1 || $_SESSION['cambiarestadoinventario']==1 )
+          { ?>
           <div class="col-md-6 col-sm-6 col-12">
             <a href="inventario_carros.php">
             <div class="info-box shadow-none">
@@ -119,7 +143,11 @@
             </div>
             </a>
           </div>
+          <?php } ?>
 
+          <?php 
+          if ($_SESSION['verfotografias']==1)
+          { ?>
           <div class="col-md-6 col-sm-6 col-12">
             <a href="fotografias.php">
             <div class="info-box shadow-sm">
@@ -131,7 +159,11 @@
             </div>
             </a>
           </div>
+          <?php } ?>
 
+          <?php 
+          if ($_SESSION['verclientes']==1 || $_SESSION['crearclientes']==1 || $_SESSION['editarclientes']==1 || $_SESSION['cambiarestadoclientes']==1 )
+          { ?>
           <div class="col-md-6 col-sm-6 col-12">
             <a href="clientes.php">
             <div class="info-box shadow">
@@ -143,7 +175,9 @@
             </div>
             </a>
           </div>
+          <?php } ?>
 
+          <?php if ($_SESSION['verfacturas']==1 || $_SESSION['crearfacturas']==1 || $_SESSION['editarfacturas']==1 || $_SESSION['cambiarestadofacturas']==1 ) { ?>
           <div class="col-md-6 col-sm-6 col-12">
             <a href="facturas.php">
             <div class="info-box shadow-lg">
@@ -155,6 +189,7 @@
             </div>
             </a>
           </div>
+          <?php } ?>
 
           <!-- <div class="col-md-6 col-sm-6 col-12">
             <a href="reportes.php">
@@ -167,6 +202,7 @@
             </a>
           </div> -->
 
+          <?php if ($_SESSION['crearusuarios']==1 || $_SESSION['editarusuarios']==1 || $_SESSION['cambiarestadousuarios']==1 || $_SESSION['verusuarios']==1) { ?>
           <div class="col-md-6 col-sm-6 col-12">
             <a href="usuarios.php">
             <div class="info-box shadow-none">
@@ -178,6 +214,7 @@
             </div>
             </a>
           </div>
+          <?php } ?>
 
             
 
