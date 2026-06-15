@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2026 a las 01:30:43
+-- Tiempo de generación: 15-06-2026 a las 18:56:07
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,6 +49,13 @@ CREATE TABLE `carros` (
   `fechaactualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `carros`
+--
+
+INSERT INTO `carros` (`idcarro`, `vin`, `marca`, `modelo`, `anio`, `color`, `placa`, `kilometraje`, `tipocombustible`, `transmision`, `tipocarroceria`, `preciocompra`, `precioventa`, `gastosextra`, `fechaingreso`, `estado`, `observaciones`, `fechacreacion`, `fechaactualizacion`) VALUES
+(1, '1HGCR2F8XHA023456', 'Chevrolet', 'Tracker RS', 2020, 'Rojo', 'HAZ2021', 80000, 'Gasolina', 'Automatica', 'SUV', 740000.00, 900000.00, 20000.00, '2026-05-01', 'Disponible', 'Rasguños leves.', '2026-06-15 16:18:18', '2026-06-15 16:18:41');
+
 -- --------------------------------------------------------
 
 --
@@ -73,7 +80,8 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`idcliente`, `tipocliente`, `rtn`, `nombre`, `telefono`, `correoelectronico`, `direccion`, `fecharegistro`, `estado`) VALUES
 (1, 'Natural', '01012006040529', 'Ismael Mauricio Castillo Castro', '99758196', 'imcastillocastro@gmail.com', 'Col Raul Pineda', '2026-06-08 17:43:01', 'Activo'),
-(2, 'Juridica', '2021145323451', 'LARECOTURH', '99554422', 'admin@larecoturh.org', 'Col Buenos Aire', '2026-06-11 21:40:14', 'Activo');
+(2, 'Juridica', '20211453234519', 'LARECOTURH', '99554422', 'admin@larecoturh.org', 'Col Buenos Aire', '2026-06-11 21:40:14', 'Activo'),
+(3, 'Natural', '01012004010009', 'David Geovanny Castillo Castro', '99768895', 'davihn504@gmail.com', 'Colonia El Sauce', '2026-06-15 16:08:48', 'Activo');
 
 -- --------------------------------------------------------
 
@@ -128,6 +136,13 @@ CREATE TABLE `facturas` (
   `idcarro` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `facturas`
+--
+
+INSERT INTO `facturas` (`idfactura`, `numerofactura`, `fecha`, `idcliente`, `idusuario`, `descuento`, `subtotal`, `impuestoporcentaje`, `impuestos`, `total`, `metodopago`, `estado`, `idcarro`) VALUES
+(1, 'F-001', '2026-06-15 18:18:00', 1, 1, 20000.00, 880000.00, '15%', 132000.00, 1012000.00, 'Transferencia', 'Pendiente', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +154,14 @@ CREATE TABLE `fotos_carro` (
   `idcarro` int(11) DEFAULT NULL,
   `ruta` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `fotos_carro`
+--
+
+INSERT INTO `fotos_carro` (`idfoto`, `idcarro`, `ruta`) VALUES
+(1, 1, '1781540298_0.jpg'),
+(2, 1, '1781540298_1.jpg');
 
 -- --------------------------------------------------------
 
@@ -261,7 +284,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `login`, `clave`, `cargo`, `imagen`, `condicion`) VALUES
-(1, 'admin', 'admin', 'admin', 'Administrador', 'admin.png', 1);
+(1, 'admin', 'admin', 'admin', 'Administrador', 'admin.png', 1),
+(2, 'Joel', 'joel', 'Joel123.', 'Supervisor', '1781540034.png', 1);
 
 -- --------------------------------------------------------
 
@@ -307,7 +331,21 @@ INSERT INTO `usuario_permisos` (`idusuario`, `idpermiso`) VALUES
 (1, 15),
 (1, 16),
 (1, 17),
-(1, 18);
+(1, 18),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(2, 8),
+(2, 9),
+(2, 10),
+(2, 11),
+(2, 12),
+(2, 13),
+(2, 14);
 
 --
 -- Índices para tablas volcadas
@@ -399,13 +437,13 @@ ALTER TABLE `usuario_permisos`
 -- AUTO_INCREMENT de la tabla `carros`
 --
 ALTER TABLE `carros`
-  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
@@ -417,13 +455,13 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos_carro`
 --
 ALTER TABLE `fotos_carro`
-  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
@@ -447,7 +485,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
