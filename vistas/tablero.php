@@ -63,7 +63,7 @@
                 <p>Total de Usuarios</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-person-add"></i>
               </div>
               <a href="usuarios.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -78,7 +78,9 @@
                 <p>Total de Clientes</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                
+                <!-- IA, sugiereme abajo de esta linea una imagen para icono de un carro o parecido -->
+                <i class="fas fa-user-friends"></i>
               </div>
               <a href="clientes.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -93,7 +95,8 @@
                 <p>Total de Facturas</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                
+                <i class="fas fa-file-invoice"></i>
               </div>
               <a href="facturas.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
