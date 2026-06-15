@@ -6,9 +6,15 @@
         header("Location: login.html");
         exit();
     }
+    
+    
 
     require_once "head.php";
+    require_once "../modelo/ejecutarSQL.php";
+    $ejecutar = new ejecutarSQL();
 ?>
+
+
 
 
   <div class="content-wrapper">
@@ -29,6 +35,71 @@
     </div>
     <section class="content pt-3">
       <div class="container-fluid">
+
+      <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $ejecutar->mostrar("SELECT COUNT(*) as total FROM carros")['total']; ?>
+                 </h3>
+
+                <p>Total de Carros</p>
+              </div>
+              <div class="icon">
+                <!-- IA, sugiereme abajo de esta linea una imagen para icono de un carro o parecido -->
+                <i class="ion ion-model-s"></i>
+              </div>
+              <a href="inventario_carros.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php echo $ejecutar->mostrar("SELECT COUNT(*) as total FROM usuario")['total']; ?></h3>
+
+                <p>Total de Usuarios</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="usuarios.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $ejecutar->mostrar("SELECT COUNT(*) as total FROM clientes")['total']; ?></h3>
+
+                <p>Total de Clientes</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="clientes.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><?php echo $ejecutar->mostrar("SELECT COUNT(*) as total FROM facturas")['total']; ?></h3>
+
+                <p>Total de Facturas</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="facturas.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
 
          <!--INICIO -->
         <h5 class="mb-2"></h5>
