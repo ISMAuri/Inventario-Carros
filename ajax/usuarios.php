@@ -112,8 +112,15 @@ switch ($_GET['opc']) {
 			if ($_SESSION['editarusuarios'] == 1) {
 				$btneditar = '<button type="button" onclick="mostrar(' . $fila->idusuario . ')" class="btn btn-primary" ><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></button>';
 			}
-			if ($_SESSION['cambiarestadousuarios'] == 1) {
-				$btnestado = '<button type="button" onclick="cambiarestado(' . $fila->idusuario . ')" class="btn btn-warning" ><i class="fas fa-exclamation-triangle"></i></button>';
+
+			if ($condicion) {
+				if ($_SESSION['cambiarestadousuarios'] == 1) {
+					$btnestado = ' <button type="button" onclick="anular(' . $fila->idusuario . ')" class="btn btn-danger" ><i class="fas fa-times"></i></button>';
+				}
+			} else {
+				if ($_SESSION['cambiarestadousuarios'] == 1) {
+					$btnestado = ' <button type="button" onclick="activar(' . $fila->idusuario . ')" class="btn btn-success" ><i class="fas fa-check"></i></button>';
+				}
 			}
 
 			$data[] = array(

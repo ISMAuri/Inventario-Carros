@@ -75,7 +75,7 @@ function limpiar(){
 		$("#rtn").val("");	
 		$("#telefono").val("");	
 		$("#correoelectronico").val("");	
-		$("#tipocliente").val("");			
+		$("#tipocliente").val("Natural");			
 		//$("#tipocliente").val(data.tipocliente).trigger('change');
 		$("#estado").val("Activo");
 
