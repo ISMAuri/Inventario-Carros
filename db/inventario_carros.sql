@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2026 a las 18:56:07
+-- Tiempo de generación: 16-06-2026 a las 02:19:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -54,7 +54,16 @@ CREATE TABLE `carros` (
 --
 
 INSERT INTO `carros` (`idcarro`, `vin`, `marca`, `modelo`, `anio`, `color`, `placa`, `kilometraje`, `tipocombustible`, `transmision`, `tipocarroceria`, `preciocompra`, `precioventa`, `gastosextra`, `fechaingreso`, `estado`, `observaciones`, `fechacreacion`, `fechaactualizacion`) VALUES
-(1, '1HGCR2F8XHA023456', 'Chevrolet', 'Tracker RS', 2020, 'Rojo', 'HAZ2021', 80000, 'Gasolina', 'Automatica', 'SUV', 740000.00, 900000.00, 20000.00, '2026-05-01', 'Disponible', 'Rasguños leves.', '2026-06-15 16:18:18', '2026-06-15 16:18:41');
+(1, '1HGCR2F8XHA023456', 'Chevrolet', 'Tracker RS', 2020, 'Rojo', 'HAZ2021', 80000, 'Gasolina', 'Automatica', 'SUV', 740000.00, 900000.00, 20000.00, '2026-05-01', 'Disponible', 'Rasguños leves.', '2026-06-15 16:18:18', '2026-06-15 16:18:41'),
+(2, '2T1KR32E85C433958', 'Toyota', 'Matrix XR', 2005, 'Negro', 'S/P', 130000, 'Gasolina', 'Automatica', 'Hatchback', 105000.00, 125000.00, 1700.00, '2026-03-17', 'Vendido', '', '2026-06-15 17:36:47', '2026-06-15 18:02:28'),
+(3, '2T1KR32E06C596203', 'Toyota', 'Matrix XR', 2006, 'Gris', 'S/P', 122500, 'Gasolina', 'Automatica', 'Hatchback', 100000.00, 115000.00, 1700.00, '2026-04-03', 'Vendido', '', '2026-06-15 18:08:07', '2026-06-15 18:09:06'),
+(5, '2T1KR32E67C660424', 'Toyota', 'Matrix XR', 2007, 'Blanco', 'S/P', 163, 'Gasolina', 'Automatica', 'Hatchback', 95000.00, 118000.00, 1700.00, '2026-04-08', 'Vendido', '', '2026-06-15 18:11:44', '2026-06-15 18:11:44'),
+(7, '2T1KR32E98C698425', 'Toyota', 'Matrix XR', 2008, 'Gris', 'S/P', 137700, 'Gasolina', 'Automatica', 'Hatchback', 110000.00, 125000.00, 1700.00, '2026-04-13', 'Vendido', '', '2026-06-15 18:44:07', '2026-06-15 18:44:18'),
+(8, '1FMCU0F78KUB19881', 'Ford', 'Escape s', 2019, 'Azul', 'S/P', 93120, 'Gasolina', 'Automatica', 'SUV', 180000.00, 235000.00, 1700.00, '2026-04-17', 'Vendido', '', '2026-06-15 18:46:56', '2026-06-15 18:46:56'),
+(9, 'JTMBD31V565043933', 'Toyota', 'Rav4 Limited', 2007, 'Gris', 'S/P', 144954, 'Gasolina', 'Automatica', 'SUV', 155000.00, 170000.00, 1700.00, '2026-04-24', 'Vendido', '', '2026-06-15 18:51:06', '2026-06-15 18:51:06'),
+(10, '5J6RM3H30DL013437', 'Honda', 'CRV LX', 2013, 'Rojo', 'S/P', 108462, 'Gasolina', 'Automatica', 'SUV', 179000.00, 200000.00, 1700.00, '2026-05-06', 'Vendido', '', '2026-06-15 18:58:52', '2026-06-15 18:58:52'),
+(11, 'JTDBR32E870115822', 'Toyota', 'Corolla LE', 2007, 'Negro', 'S/P', 166149, 'Gasolina', 'Automatica', 'Sedan', 100000.00, 111000.00, 1700.00, '2026-05-01', 'Vendido', '', '2026-06-15 19:01:10', '2026-06-15 19:01:10'),
+(12, '1FMCU9J90DUD33652', 'Ford', 'Escape Titanium', 2013, 'Gris', 'S/P', 143145, 'Gasolina', 'Automatica', 'SUV', 123000.00, 195000.00, 1700.00, '2026-06-10', 'Vendido', '', '2026-06-15 19:05:09', '2026-06-15 19:05:09');
 
 -- --------------------------------------------------------
 
@@ -81,7 +90,8 @@ CREATE TABLE `clientes` (
 INSERT INTO `clientes` (`idcliente`, `tipocliente`, `rtn`, `nombre`, `telefono`, `correoelectronico`, `direccion`, `fecharegistro`, `estado`) VALUES
 (1, 'Natural', '01012006040529', 'Ismael Mauricio Castillo Castro', '99758196', 'imcastillocastro@gmail.com', 'Col Raul Pineda', '2026-06-08 17:43:01', 'Activo'),
 (2, 'Juridica', '20211453234519', 'LARECOTURH', '99554422', 'admin@larecoturh.org', 'Col Buenos Aire', '2026-06-11 21:40:14', 'Activo'),
-(3, 'Natural', '01012004010009', 'David Geovanny Castillo Castro', '99768895', 'davihn504@gmail.com', 'Colonia El Sauce', '2026-06-15 16:08:48', 'Activo');
+(3, 'Natural', '01012004010009', 'David Geovanny Castillo Castro', '99768895', 'davihn504@gmail.com', 'Colonia El Sauce', '2026-06-15 16:08:48', 'Activo'),
+(4, 'Natural', '0101-2007-0148', 'Lia Jael Maradiaga Villegas', '9605-5037', 'liamaradiaga2007@gmail.com', 'Bo. Danto', '2026-06-15 17:46:34', 'Activo');
 
 -- --------------------------------------------------------
 
@@ -141,7 +151,8 @@ CREATE TABLE `facturas` (
 --
 
 INSERT INTO `facturas` (`idfactura`, `numerofactura`, `fecha`, `idcliente`, `idusuario`, `descuento`, `subtotal`, `impuestoporcentaje`, `impuestos`, `total`, `metodopago`, `estado`, `idcarro`) VALUES
-(1, 'F-001', '2026-06-15 18:18:00', 1, 1, 20000.00, 880000.00, '15%', 132000.00, 1012000.00, 'Transferencia', 'Pendiente', 1);
+(1, 'F-001', '2026-06-15 18:18:00', 1, 1, 20000.00, 880000.00, '15%', 132000.00, 1012000.00, 'Transferencia', 'Pendiente', 1),
+(2, 'F-002', '2026-06-15 21:07:00', 4, 1, 0.00, 900000.00, '15%', 135000.00, 1035000.00, 'Efectivo', 'Pendiente', 1);
 
 -- --------------------------------------------------------
 
@@ -161,7 +172,16 @@ CREATE TABLE `fotos_carro` (
 
 INSERT INTO `fotos_carro` (`idfoto`, `idcarro`, `ruta`) VALUES
 (1, 1, '1781540298_0.jpg'),
-(2, 1, '1781540298_1.jpg');
+(2, 1, '1781540298_1.jpg'),
+(3, 2, '1781546549_0.jpeg'),
+(4, 3, '1781546887_0.jpeg'),
+(5, 5, '1781547104_0.jpeg'),
+(7, 7, '1781549059_0.jpeg'),
+(8, 8, '1781549217_0.jpeg'),
+(9, 9, '1781549467_0.jpeg'),
+(10, 10, '1781549932_0.jpeg'),
+(11, 11, '1781550070_0.jpeg'),
+(12, 12, '1781550310_0.jpeg');
 
 -- --------------------------------------------------------
 
@@ -285,7 +305,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `login`, `clave`, `cargo`, `imagen`, `condicion`) VALUES
 (1, 'admin', 'admin', 'admin', 'Administrador', 'admin.png', 1),
-(2, 'Joel', 'joel', 'Joel123.', 'Supervisor', '1781540034.png', 1);
+(2, 'Joel', 'joel', 'Joel123.', 'Supervisor', '1781540034.png', 1),
+(3, 'Alfonso Eliasid  Maradiaga Villegas', 'amaradiaga', 'Fonchy.93', 'Administrador', '1781548775.png', 1);
 
 -- --------------------------------------------------------
 
@@ -345,7 +366,25 @@ INSERT INTO `usuario_permisos` (`idusuario`, `idpermiso`) VALUES
 (2, 11),
 (2, 12),
 (2, 13),
-(2, 14);
+(2, 14),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(3, 10),
+(3, 11),
+(3, 12),
+(3, 13),
+(3, 14),
+(3, 15),
+(3, 16),
+(3, 17),
+(3, 18);
 
 --
 -- Índices para tablas volcadas
@@ -437,13 +476,13 @@ ALTER TABLE `usuario_permisos`
 -- AUTO_INCREMENT de la tabla `carros`
 --
 ALTER TABLE `carros`
-  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcarro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
@@ -455,13 +494,13 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos_carro`
 --
 ALTER TABLE `fotos_carro`
-  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idfoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
@@ -485,7 +524,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
