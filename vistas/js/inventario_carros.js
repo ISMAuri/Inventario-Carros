@@ -89,6 +89,16 @@ $("#idcategoria").val("");
 
 }
 function guardarRegistro(){
+
+	if ($("#vin").val().trim().length != 17) {
+		bootbox.alert("El VIN debe tener exactamente 17 caracteres. Por favor, verifique e intente nuevamente.");
+		return;
+	}
+
+	if ($("#vin").val().trim() == "" || $("#marca").val().trim() == "" || $("#modelo").val().trim() == "" || $("#anio").val().trim() == "" || $("#color").val().trim() == "" || $("#placa").val().trim() == "" || $("#kilometraje").val().trim() == "" || $("#preciocompra").val().trim() == "" || $("#precioventa").val().trim() == "" || $("#fechaingreso").val().trim() == "") {
+		bootbox.alert("Por favor, complete todos los campos obligatorios.");
+		return;
+	}
 	
 
 	var formData = new FormData($("#formulario")[0]);
@@ -108,9 +118,13 @@ function guardarRegistro(){
 	    processData: false,
 
 	    success: function(datos)
-	    {                    
-	          bootbox.alert(datos);	          	          
-	          tabla.ajax.reload();
+	    {                 
+			if (datos.includes("existe vin") || datos.includes("Error")) {
+				bootbox.alert("El vin ingresado ya existe en el sistema o hubo un error al guardar el registro. Por favor, verifique la información e intente nuevamente.");
+				return;
+			}
+	        bootbox.alert(datos);	          	          
+	        tabla.ajax.reload();
 	    }
 
 	});

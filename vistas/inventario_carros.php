@@ -103,7 +103,7 @@
 
         <div class="col-md-3">
             <label>Año:</label>
-            <input type="text" name="anio" id="anio" class="form-control">
+            <input type="number" name="anio" id="anio" class="form-control">
         </div>
 
     </div>
@@ -124,7 +124,7 @@
 
         <div class="col-md-3">
             <label>Kilometraje:</label>
-            <input type="text" name="kilometraje" id="kilometraje" class="form-control">
+            <input type="number" name="kilometraje" id="kilometraje" class="form-control">
         </div>
 
         <div class="col-md-3">
@@ -169,12 +169,12 @@
 
         <div class="col-md-3">
             <label>Precio de Compra:</label>
-            <input type="text" name="preciocompra" id="preciocompra" class="form-control">
+            <input type="number" name="preciocompra" id="preciocompra" class="form-control">
         </div>
 
         <div class="col-md-3">
             <label>Precio de Venta:</label>
-            <input type="text" name="precioventa" id="precioventa" class="form-control">
+            <input type="number" name="precioventa" id="precioventa" class="form-control">
         </div>
 
         

@@ -134,6 +134,21 @@ switch ($_GET['opc']) {
 
 		if (empty($idcarro)) {
 			$exito = true;
+
+			if ($gastosextra == "") {
+				$gastosextra = 0;
+			}
+			
+			$sql = "SELECT vin FROM carros WHERE vin='$vin'";
+			$verificar = $categoria->mostrar($sql);
+
+			if ($verificar) {
+				echo "existe vin";
+				exit();
+			}
+			// var_dump(boolean($verificar));exit();
+
+
 			$sql = "INSERT INTO `carros`(`vin`, `marca`, `modelo`, `anio`, `color`, `placa`, `kilometraje`, `tipocombustible`, `transmision`, `tipocarroceria`, `preciocompra`, `precioventa`, `gastosextra`, `fechaingreso`, `estado`, `observaciones`) VALUES ('$vin','$marca','$modelo','$anio','$color','$placa','$kilometraje','$tipo_combustible','$transmision','$tipo_carroceria','$precio_compra','$precio_venta','$gastosextra','$fecha_ingreso','$estado','$observaciones')";
 
 			$resp = $categoria->insertar($sql);
@@ -147,7 +162,17 @@ switch ($_GET['opc']) {
 
 			echo $resp ? "El carro se registro correctamente " : " No se puedo realizar";
 		} else {
+			if ($gastosextra == "") {
+				$gastosextra = 0;
+			}
+			
+			$sql = "SELECT vin FROM carros WHERE vin='$vin'";
+			$verificar = $categoria->mostrar($sql);
 
+			if ($verificar) {
+				echo "existe vin";
+				exit();
+			}
 
 			$sql = "UPDATE `carros` SET `vin`='$vin',`marca`='$marca',`modelo`='$modelo',`anio`='$anio',`color`='$color',`placa`='$placa',`kilometraje`='$kilometraje',`tipocombustible`='$tipo_combustible',`transmision`='$transmision',`tipocarroceria`='$tipo_carroceria',`preciocompra`='$precio_compra',`precioventa`='$precio_venta',`gastosextra`='$gastosextra',`fechaingreso`='$fecha_ingreso',`estado`='$estado',`observaciones`='$observaciones' WHERE idcarro='$idcarro'";
 			$resp = $categoria->insertar($sql);
