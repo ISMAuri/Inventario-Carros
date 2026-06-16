@@ -78,7 +78,7 @@ $.post("../ajax/usuarios.php?opc=mostrar",{idcategoria : idcategoria}, function(
 		$("#clave").val(data.clave);	
 		$("#cargo").val(data.cargo);
 		// //$("#tipo").val(data.tipo).trigger('change');
-		$("#estado").val(data.estado);		
+		$("#condicion").val(data.condicion);		
 
 		$('input[name="permisos[]"]').prop('checked', false);
 
@@ -96,8 +96,7 @@ function limpiar(){
 		$("#login").val("");		
 		$("#clave").val("");	
 		$("#cargo").val("");	
-		$("#imagen").val("");	
-		// $("#estado").val("Activado");			
+		$("#imagen").val("");				
 		//$("#tipo").val(data.tipo).trigger('change');
 		
 }

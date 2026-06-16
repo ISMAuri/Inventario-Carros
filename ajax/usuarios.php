@@ -12,6 +12,7 @@ $nombre           = isset($_POST['nombre']) ? limpiarCadena($_POST['nombre']) : 
 $clave         = isset($_POST['clave']) ? limpiarCadena($_POST['clave']) : "";
 $login         = isset($_POST['login']) ? limpiarCadena($_POST['login']) : "";
 $imagen       = isset($_POST['imagen']) ? limpiarCadena($_POST['imagen']) : "";
+$condicion       = isset($_POST['condicion']) ? limpiarCadena($_POST['condicion']) : "";
 
 
 switch ($_GET['opc']) {
@@ -199,8 +200,9 @@ switch ($_GET['opc']) {
 			// }
 			// var_dump($lista);
 			// exit();
+			
 
-			$sql = "INSERT INTO `usuario`(  `nombre`, `login`, `clave`, `cargo`, `imagen` ) VALUES ( '$nombre','$login','$clave','$cargo','$imagen' )";
+			$sql = "INSERT INTO `usuario`(  `nombre`, `login`, `clave`, `cargo`, `imagen`, `condicion` ) VALUES ( '$nombre','$login','$clave','$cargo','$imagen','$condicion' )";
 			// echo $sql;
 			$resp = $categoria->insertar($sql);
 
@@ -215,7 +217,7 @@ switch ($_GET['opc']) {
 
 			echo $resp ? "El usuario se registro correctamente " : " No se puedo realizar";
 		} else {
-			$sql = "UPDATE usuario SET nombre='$nombre', login='$login', clave='$clave', cargo='$cargo' WHERE idusuario='$idcategoria'";
+			$sql = "UPDATE usuario SET nombre='$nombre', login='$login', clave='$clave', cargo='$cargo', condicion='$condicion' WHERE idusuario='$idcategoria'";
 			$categoria->insertar($sql);
 
 			if ($imagen != "") {

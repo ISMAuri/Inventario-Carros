@@ -60,6 +60,18 @@ switch ($_GET['opc']) {
 				}
 			}
 
+			$estado ="<span class='badge badge-success'>Disponible</span>";
+
+			if ($fila->estado == "Disponible") {
+				$estado = "<span class='badge badge-success'>Disponible</span>";
+			} else if ($fila->estado == "Mantenimiento") {
+				$estado = "<span class='badge badge-warning'>Mantenimiento</span>";
+			} else if ($fila->estado == "Reservado") {
+				$estado = "<span class='badge badge-secondary'>Reservado</span>";
+			} else if ($fila->estado == "Vendido") {
+				$estado = "<span class='badge badge-danger'>Vendido</span>";
+			}
+
 			$data[] = array(
 				"0" => $btneditar.$btnestado.$btndetalles,
 				"1" => $fila->vin,
@@ -68,7 +80,7 @@ switch ($_GET['opc']) {
 				"4" => $fila->anio,
 				"5" => $fila->kilometraje,
 				"6" => $fila->precioventa,
-				"7" => $fila->estado
+				"7" => $estado
 			);
 		}
 		$results = array(
