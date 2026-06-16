@@ -55,8 +55,8 @@ switch ($_GET['opc']) {
 				"5" => $fila->correoelectronico,
 				"6" => $fila->direccion,
 				"7" => $fila->fecharegistro,
-				"8" => ($condicion) ? '<span class="label bg-green">Activado</span>'
-					: '<span class="label bg-red">Inactivo</span>'
+				"8" => ($condicion) ? '<span class="badge badge-success">Activado</span>' : '<span class="badge badge-danger">Inactivo</span>'
+				//"8" => ($condicion) ? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Inactivo</span>'
 			);
 		}
 		$results = array(

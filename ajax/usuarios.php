@@ -129,8 +129,8 @@ switch ($_GET['opc']) {
 				"2" => $fila->login,
 				"3" => $fila->cargo,
 				"4" => '<img width="64" height="64" src="../files/usuarios/' . $fila->imagen . '">',
-				"5" => ($condicion) ? '<span class="label bg-green">Activado</span>'
-					: '<span class="label bg-red">Desactivado</span>'
+				"5" => ($condicion) ? '<span class="badge badge-success">Activado</span>' : '<span class="badge badge-danger">Inactivo</span>'
+				//"5" => ($condicion) ? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Desactivado</span>'
 			);
 		}
 		$results = array(
