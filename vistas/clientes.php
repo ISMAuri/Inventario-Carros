@@ -91,7 +91,7 @@ if ($_SESSION['crearclientes']==1)
         </div>
         <div class="col-md-3">
             <label>RTN:</label>
-            <input type="text" name="rtn" id="rtn" class="form-control">
+            <input type="number" name="rtn" id="rtn" class="form-control">
         </div>
 
         <div class="col-md-3">

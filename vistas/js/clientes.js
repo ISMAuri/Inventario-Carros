@@ -81,6 +81,30 @@ function limpiar(){
 
 }
 function guardarRegistro(){
+
+
+	if ($("#rtn").val().trim() == "" || $("#rtn").val().trim().length != 14) {
+		bootbox.alert("Por favor, ingrese el RTN del cliente, debe constar de 14 dígitos.");
+		return;
+	}
+	if ($("#nombre").val().trim() == "") {
+		bootbox.alert("Por favor, ingrese el nombre del cliente.");
+		return;
+	}
+	if ($("#telefono").val().trim() == "") {
+		bootbox.alert("Por favor, ingrese el número de teléfono del cliente.");
+		return;
+	}
+	if ($("#correoelectronico").val().trim() == "" || !$("#correoelectronico").val().trim().includes("@")) {
+		bootbox.alert("Por favor, ingrese un correo electrónico válido del cliente.");
+		return;
+	}
+	if ($("#direccion").val().trim() == "" || $("#direccion").val().trim().length < 10) {
+		bootbox.alert("Por favor, ingrese la dirección del cliente, debe tener al menos 10 caracteres.");
+		return;
+	}
+
+
 	
 
 	var formData = new FormData($("#formulario")[0]);
