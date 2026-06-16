@@ -96,6 +96,17 @@ function limpiar() {
   // $("#estadofactura").val("");
 }
 function guardarRegistro() {
+
+    if ($("#carro").val() == "") {
+      bootbox.alert("Debe seleccionar un carro para generar la factura.");
+      return;
+    }
+
+    if ($("#cliente").val() == "") {
+      bootbox.alert("Debe seleccionar un cliente para generar la factura.");
+      return;
+    }
+
   var formData = new FormData($("#formulario")[0]);
   $.ajax({
     url: "../ajax/facturas.php?opc=guardaryeditar",

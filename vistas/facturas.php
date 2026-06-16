@@ -208,7 +208,9 @@ if ($_SESSION['crearfacturas']==1)
 
         <div class="col-md-3">
             <label>Fecha:</label>
-            <input type="datetime-local" name="fecha" id="fecha" class="form-control" value="<?php echo date('Y-m-d\TH:i');?>">
+            <input type="datetime-local" name="fecha" id="fecha" class="form-control" value="<?php
+            date_default_timezone_set('America/Tegucigalpa');
+            echo date('Y-m-d\TH:i'); ?>">
         </div>
 
         <div class="col-md-3 datos-cliente">

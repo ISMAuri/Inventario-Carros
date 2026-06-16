@@ -103,6 +103,11 @@ switch ($_GET['opc']) {
 			$id = $ultimoid['id'] + 1;
 			$idcarro = isset($_POST['carro']) ? limpiarCadena($_POST['carro']) : "";
 			$idusuario = $_SESSION['idusuario'];
+
+			if ($descuento == "") {
+				$descuento = 0;
+			}
+
 			$sql = "INSERT INTO facturas (numerofactura, fecha, idcliente, idusuario, subtotal, descuento,
 				impuestoporcentaje, impuestos, total, metodopago, estado, idcarro
 				) VALUES ('F-00$id','$fecha','$idcliente','$idusuario',

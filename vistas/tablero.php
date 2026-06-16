@@ -50,7 +50,6 @@
                 <p>Total de Carros</p>
               </div>
               <div class="icon">
-                <!-- IA, sugiereme abajo de esta linea una imagen para icono de un carro o parecido -->
                 <i class="ion ion-model-s"></i>
               </div>
               <a href="inventario_carros.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
@@ -92,7 +91,6 @@
               </div>
               <div class="icon">
                 
-                <!-- IA, sugiereme abajo de esta linea una imagen para icono de un carro o parecido -->
                 <i class="fas fa-user-friends"></i>
               </div>
               <a href="clientes.php" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
