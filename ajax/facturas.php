@@ -66,8 +66,8 @@ switch ($_GET['opc']) {
 				"6" => $fila->impuestos,
 				"7" => $fila->total,
 				"8" => $fila->metodopago,
-				"9" => ($condicion) ? '<span class="label bg-green">' . $fila->estado . '</span>'
-					: '<span class="label bg-' . $bg . '">' . $fila->estado . '</span>'
+				"9" => ($condicion) ? '<span class="badge badge-warning">' . $fila->estado . '</span>' : '<span class="badge badge-danger">' . $fila->estado . '</span>'
+				//class="badge badge-success
 			);
 		}
 		$results = array(
