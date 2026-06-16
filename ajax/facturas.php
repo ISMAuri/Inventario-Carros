@@ -52,8 +52,8 @@ switch ($_GET['opc']) {
 			$usuario = $categoria->mostrar("select nombre from usuario where idusuario='" . $fila->idusuario . "'");
 			$carro = $categoria->mostrar("select * from carros where idcarro='" . $fila->idcarro . "'");
 
-			$bg='red';
-			if ($fila->estado == "Pendiente") $bg = 'yellow';
+			$bg='badge badge-danger';
+			if ($fila->estado == "Pendiente") $bg = 'badge badge-warning';
 			$data[] = array(
 				"0" => $btneditar .	$btnestado .$btnr ,
 				"1" => $fila->numerofactura,
@@ -66,7 +66,7 @@ switch ($_GET['opc']) {
 				"6" => $fila->impuestos,
 				"7" => $fila->total,
 				"8" => $fila->metodopago,
-				"9" => ($condicion) ? '<span class="badge badge-warning">' . $fila->estado . '</span>' : '<span class="badge badge-warning">' . $fila->estado . '</span>'
+				"9" => ($condicion) ? '<span class="badge badge-success">' . $fila->estado . '</span>' : '<span class="' . $bg . '">' . $fila->estado . '</span>'
 				//class="badge badge-success
 			);
 		}
