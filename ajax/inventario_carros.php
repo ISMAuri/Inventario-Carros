@@ -165,14 +165,7 @@ switch ($_GET['opc']) {
 			if ($gastosextra == "") {
 				$gastosextra = 0;
 			}
-			
-			$sql = "SELECT vin FROM carros WHERE vin='$vin'";
-			$verificar = $categoria->mostrar($sql);
 
-			if ($verificar) {
-				echo "existe vin";
-				exit();
-			}
 
 			$sql = "UPDATE `carros` SET `vin`='$vin',`marca`='$marca',`modelo`='$modelo',`anio`='$anio',`color`='$color',`placa`='$placa',`kilometraje`='$kilometraje',`tipocombustible`='$tipo_combustible',`transmision`='$transmision',`tipocarroceria`='$tipo_carroceria',`preciocompra`='$precio_compra',`precioventa`='$precio_venta',`gastosextra`='$gastosextra',`fechaingreso`='$fecha_ingreso',`estado`='$estado',`observaciones`='$observaciones' WHERE idcarro='$idcarro'";
 			$resp = $categoria->insertar($sql);
