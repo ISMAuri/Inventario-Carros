@@ -32,14 +32,14 @@ $pdf->Cell(5,$textypos,"Inversiones Mercantiles Villegas S.A. de C.V.");
 // $pdf->Cell(5,$textypos,"DE:");
 $pdf->SetFont('Arial','',10);    
 $pdf->setY(20);$pdf->setX(15);
-$pdf->Cell(40,$textypos,"Colonia Los Maestros");
-$pdf->setY(20);$pdf->setX(65);
-$pdf->Cell(40,$textypos,"Tel. 9980-2450");
-$pdf->setY(20);$pdf->setX(105);
-$pdf->Cell(5,$textypos,"Email: info@inversionesvillegas.com");
-$pdf->setY(25);$pdf->setX(15);
-$pdf->Cell(5,$textypos,"RTN: 08011985123960");
+$pdf->Cell(40,$textypos,"Bo. Danto, una cuadra al sur del Instituto Jose Trinidad Reyes");
 $pdf->setY(25);$pdf->setX(65);
+$pdf->Cell(40,$textypos,"Tel. 9980-2450");
+$pdf->setY(20);$pdf->setX(120);
+$pdf->Cell(5,$textypos,"Email: maradiagaalfonso@gmail.com");
+$pdf->setY(25);$pdf->setX(15);
+$pdf->Cell(5,$textypos,"RTN: 01011993047677");
+$pdf->setY(25);$pdf->setX(120);
 $pdf->Cell(5,$textypos,"inversionesvillegas.com");
 
 
@@ -63,13 +63,16 @@ $pdf->SetFont('Arial','',10);
 $pdf->setY(42);$pdf->setX(15);
 $pdf->Cell(90, 30, '', 1, 0, 'C');
 
+
 $pdf->setY(45);$pdf->setX(15);
-$pdf->Cell(5,$textypos,"RTN: " . $cliente['rtn']);
+$pdf->Cell(5,$textypos,utf8_decode("Codigo: CCN-000" . $cliente['idcliente']));
 $pdf->setY(50);$pdf->setX(15);
-$pdf->Cell(5,$textypos,"Cliente: " . $cliente['nombre']);
+$pdf->Cell(5,$textypos,"RTN: " . $cliente['rtn']);
 $pdf->setY(55);$pdf->setX(15);
-$pdf->Cell(5,$textypos,"Direccion: " . $cliente['direccion']);
+$pdf->Cell(5,$textypos,"Cliente: " . $cliente['nombre']);
 $pdf->setY(60);$pdf->setX(15);
+$pdf->Cell(5,$textypos,"Direccion: " . $cliente['direccion']);
+$pdf->setY(65);$pdf->setX(15);
 $pdf->Cell(5,$textypos,"Email: " . $cliente['correoelectronico']);
 
 // Agregamos los datos del cliente
@@ -79,12 +82,12 @@ $pdf->Cell(80, 30, '', 1, 0, 'C');
 
 $pdf->SetFont('Arial','',10);    
 $pdf->setY(45);$pdf->setX(110);
-$pdf->Cell(5,$textypos,"No. Factura: $factura[numerofactura]");
+$pdf->Cell(5,$textypos,"No. Factura: 001-001-01-0000$factura[idfactura]");
 $pdf->SetFont('Arial','',10);    
 $pdf->setY(50);$pdf->setX(110);
-$pdf->Cell(5,$textypos,"Fecha: $fecha[fecha]");
+$pdf->Cell(5,$textypos,utf8_decode("Fecha de Emisión: $fecha[fecha]"));
 $pdf->setY(55);$pdf->setX(110);
-$pdf->Cell(5,$textypos,"Vencimiento: $fechav[fechav]");
+$pdf->Cell(5,$textypos,utf8_decode("Fecha de Vencimiento: $fechav[fechav]"));
 $pdf->setY(60);$pdf->setX(110);
     $pdf->SetFont('Arial', 'B', 11);
 $pdf->Cell(5,$textypos,"Estado Factura: $factura[estado]");

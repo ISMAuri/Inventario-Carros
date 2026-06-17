@@ -3,11 +3,12 @@
 include "PDF_MC_Table.php";
 
 if (!isset($_GET["idcarro"])) {
-  echo 'Debe ingresar al sistema correctamente para visualizar el reporte';
-  exit();
+//   echo 'Debe ingresar al sistema correctamente para visualizar el reporte';
+//   exit();
 }
+if (isset($_GET["idcarro"])) {
 $idcarro = $_GET['idcarro'];
-
+}
 require_once "../modelo/ejecutarSQL.php";
 // var_dump($idfactura);exit();
 
@@ -24,6 +25,22 @@ $pdf->AddPage();
 // $pdf->setY(45);$pdf->setX(75);
 // $pdf->Cell(5,$textypos,"PARA:");
 
+
+    
+    if (isset($_GET["idcarro"])) {
+        $rspta = $categoria->listar("SELECT * FROM carros where idcarro='" . $idcarro . "'");
+    } else {
+        
+        $rspta = $categoria->listar("SELECT * FROM carros");
+    }
+
+    $contar = 0;
+    $contardisponibles = 0;
+    $contarvendidos = 0;
+    $contarmantenimientos = 0;
+    $contarreservados = 0;
+    while ($reg = $rspta->fetch_object()) {
+
     $pdf->Ln(10);
     $pdf->SetFont('Arial', 'B', 12);
     $pdf->Cell(5, 6, '', 0, 0, 'C');
@@ -32,8 +49,6 @@ $pdf->AddPage();
 /// Apartir de aqui empezamos con la tabla de productos
 
     $pdf->Ln(8);
-    $rspta = $categoria->listar("SELECT * FROM carros where idcarro='" . $idcarro . "'");
-    while ($reg = $rspta->fetch_object()) {
 
     $pdf->SetFont('Arial', '', 8);
 
@@ -80,7 +95,23 @@ $pdf->AddPage();
     $pdf->Cell(170, 6, utf8_decode('Observaciones: '.$reg->observaciones), 1);
     $pdf->Ln();
 
+    $contar++;
+    if ($reg->estado == "Disponible") {
+        $contardisponibles++;
+    }
+    if ($reg->estado == "Vendido") {
+        $contarvendidos++;
+    }
+    if ($reg->estado == "Mantenimiento") {
+        $contarmantenimientos++;
+    }
+    if ($reg->estado == "Reservado") {
+        $contarreservados++;
+    }
+
     //Seccion de fotos
+    if (isset($_GET["idcarro"])) {
+    
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial', 'B', 12);
@@ -113,9 +144,21 @@ $pdf->AddPage();
         $pdf->Cell(170, 6, utf8_decode('No hay fotos disponibles para este vehículo'), 0, 0, 'C');
         $pdf->Ln();
     }
-    
+    }
 
-    $pdf->output();
   
 }
+if (!isset($_GET["idcarro"])) {
+    $pdf->Ln();
+    $pdf->Cell(20, 6, utf8_decode("Total de Vehículos Registrados: $contar"), 0,0,'L');
+    $pdf->Ln();
+    $pdf->Cell(20, 6, utf8_decode("Total de Vehículos Disponibles: $contardisponibles"), 0,0,'L');
+    $pdf->Ln();
+    $pdf->Cell(20, 6, utf8_decode("Total de Vehículos Vendidos: $contarvendidos"), 0,0,'L');
+    $pdf->Ln();
+    $pdf->Cell(20, 6, utf8_decode("Total de Vehículos en Mantenimiento: $contarmantenimientos"), 0,0,'L');
+    $pdf->Ln();
+    $pdf->Cell(20, 6, utf8_decode("Total de Vehículos Reservados: $contarreservados"), 0,0,'L');
+}
 
+$pdf->Output();

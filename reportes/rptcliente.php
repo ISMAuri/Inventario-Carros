@@ -85,7 +85,7 @@ session_start();
         $contaractivos++;
       }
     }
-    if (isset($_GET['idcliente'])) {
+    if (!isset($_GET['idcliente'])) {
       $pdf->Cell(20, 6, "Total de Clientes Registrados: $contar", 0,0,'L');
       $pdf->Ln();
       $pdf->Cell(20, 6, "Total de Clientes Activos: $contaractivos", 0,0,'L');
