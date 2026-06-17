@@ -189,7 +189,7 @@ function mostrarCliente() {
           { idcliente: idcliente },
           function (data, status) {
             data = JSON.parse(data);
-            console.log("Datos del cliente:", data);
+            // console.log("Datos del cliente:", data);
             $("#idcliente").val(data.idcliente);
             $("#nombre").val(data.nombre);
             $("#tipocliente").val(data.tipocliente);

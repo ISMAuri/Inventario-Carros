@@ -8,6 +8,9 @@ $idfactura = isset($_POST['idfactura']) ? limpiarCadena($_POST['idfactura']) : "
 $estado    = isset($_POST['estadofactura']) ? limpiarCadena($_POST['estadofactura']) : "";
 $idcliente    = isset($_POST['idcliente']) ? limpiarCadena($_POST['idcliente']) : "";
 $idcarro    = isset($_POST['idcarro']) ? limpiarCadena($_POST['idcarro']) : "";
+
+$carro    = isset($_POST['carro']) ? limpiarCadena($_POST['carro']) : "";
+
 $fecha	= isset($_POST['fecha']) ? limpiarCadena($_POST['fecha']) : "";
 $subtotal	= isset($_POST['subtotal']) ? limpiarCadena($_POST['subtotal']) : "";
 $descuento	= isset($_POST['descuento']) ? limpiarCadena($_POST['descuento']) : "";
@@ -112,25 +115,25 @@ switch ($_GET['opc']) {
 				impuestoporcentaje, impuestos, total, metodopago, estado, idcarro
 				) VALUES ('F-00$id','$fecha','$idcliente','$idusuario',
 				'$subtotal','$descuento','$impuestoporcentaje%','$impuestos','$total','$metodopago',
-				'$estado','$idcarro')";
+				'$estado','$carro')";
 			$resp = $categoria->insertar($sql);
 
 			if ($resp && $estado == "Pagada") {
-				$categoria->insertar("update carros set estado='Vendido' where idcarro='$idcarro'");
+				$categoria->insertar("update carros set estado='Vendido' where idcarro='$carro'");
 			}
 			if ($resp && $estado == "Pendiente") {
-				$categoria->insertar("update carros set estado='Disponible' where idcarro='$idcarro'");
+				$categoria->insertar("update carros set estado='Disponible' where idcarro='$carro'");
 			}
 			if ($resp && $estado == "Anulada") {
-				$categoria->insertar("update carros set estado='Disponible' where idcarro='$idcarro'");
+				$categoria->insertar("update carros set estado='Disponible' where idcarro='$carro'");
 			}
 
 			echo $resp ? "El factura se registro correctamente " : " No se puedo realizar";
 		} else {
 			
 
-			$sql = "UPDATE `facturas` SET `fecha`='$fecha',`idcliente`='$idcliente',`subtotal`='$subtotal',`descuento`='$descuento',`impuestoporcentaje`='$impuestoporcentaje%',`impuestos`='$impuestos',`total`='$total',`metodopago`='$metodopago',`estado`='$estado',`idcarro`='$idcarro' WHERE idfactura='$idfactura'";
-			// echo $sql;
+			$sql = "UPDATE `facturas` SET `fecha`='$fecha',`idcliente`='$idcliente',`subtotal`='$subtotal',`descuento`='$descuento',`impuestoporcentaje`='$impuestoporcentaje%',`impuestos`='$impuestos',`total`='$total',`metodopago`='$metodopago',`estado`='$estado',`idcarro`='$carro' WHERE idfactura='$idfactura'";
+			// var_dump($sql);exit();
 			$resp = $categoria->insertar($sql);
 
 			if ($resp && $estado == "Pagada") {
