@@ -44,7 +44,8 @@ $pdf->AddPage();
     $pdf->Ln(10);
     $pdf->SetFont('Arial', 'B', 12);
     $pdf->Cell(5, 6, '', 0, 0, 'C');
-    $pdf->Cell(170, 6, 'DETALLE Y DESCRIPCION DE VEHICULO', 1, 0, 'C');
+    $n = ($contar+1);
+    $pdf->Cell(170, 6, "$n. DETALLE Y DESCRIPCION DE VEHICULO", 1, 0, 'C');
 
 /// Apartir de aqui empezamos con la tabla de productos
 
