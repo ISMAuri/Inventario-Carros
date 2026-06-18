@@ -122,9 +122,11 @@ function guardarRegistro(){
 			if (datos.includes("existe vin") || datos.includes("Error")) {
 				bootbox.alert("El vin ingresado ya existe en el sistema o hubo un error al guardar el registro. Por favor, verifique la información e intente nuevamente.");
 				return;
+
 			}
 	        bootbox.alert(datos);	          	          
 	        tabla.ajax.reload();
+			limpiar();
 	    }
 
 	});

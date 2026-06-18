@@ -118,7 +118,6 @@ function guardarRegistro() {
     success: function (datos) {
       bootbox.alert(datos);
       tabla.ajax.reload();
-      limpiar();
     },
   });
 
